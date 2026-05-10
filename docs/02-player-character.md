@@ -673,4 +673,4 @@ Player kita sudah bisa keluyuran. Sekarang kameranya harus ngikutin.
 
 [**Chapter 3 — Camera Follow (Cinemachine) →**](03-camera-follow.md)
 
-[← Chapter 1](01-setup-project.md) | [Daftar Isi](../README.md)
+[← Chapter 1](01-setup-project.md) | [Daftar Isi](index.md)

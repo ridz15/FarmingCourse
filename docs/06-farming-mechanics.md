@@ -783,4 +783,4 @@ Sprout Lands punya banyak variant tilled (corner, edge, center). Untuk auto-tili
 
 [**Chapter 7 — Inventory & UI →**](07-inventory-system.md)
 
-[← Chapter 5](05-tools-system.md) | [Daftar Isi](../README.md)
+[← Chapter 5](05-tools-system.md) | [Daftar Isi](index.md)

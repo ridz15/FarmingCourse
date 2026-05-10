@@ -649,4 +649,4 @@ Game kita sekarang punya **flow waktu**. Saatnya bikin **economy**: shop & NPC.
 
 [**Chapter 9 — Shop & NPC →**](09-shop-npc.md)
 
-[← Chapter 7](07-inventory-system.md) | [Daftar Isi](../README.md)
+[← Chapter 7](07-inventory-system.md) | [Daftar Isi](index.md)

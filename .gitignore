@@ -1,5 +1,5 @@
 # This .gitignore is for the docs repo itself (not the Unity project).
-# A Unity .gitignore template is provided in chapters/01-setup-project.md
+# A Unity .gitignore template is provided in docs/01-setup-project.md
 # for students to copy into their own Unity project.
 
 # OS
@@ -31,3 +31,7 @@ venv/
 
 # Generated
 *.log
+
+# MkDocs build output
+site/
+.cache/

@@ -269,7 +269,7 @@ Course ini gratis dan akan terus diupdate. Kalau bermanfaat:
 - Share ke teman yang juga lagi belajar Unity.
 - Kontribusi: typo fix, chapter tambahan, terjemahan ke bahasa lain — open Issue atau kirim PR.
 
-Punya question, suggestion, atau mau pamer game-mu? Buka [Issue](../../issues) dengan tag `discussion`.
+Punya question, suggestion, atau mau pamer game-mu? Buka [Issue](https://github.com/ridz15/FarmingCourse/issues) dengan tag `discussion`.
 
 ---
 
@@ -277,4 +277,4 @@ Punya question, suggestion, atau mau pamer game-mu? Buka [Issue](../../issues) d
 
 — *FarmingCourse Team*
 
-[← Chapter 11](11-polish-build.md) | [← Daftar Isi](../README.md)
+[← Chapter 11](11-polish-build.md) | [← Daftar Isi](index.md)

@@ -391,4 +391,4 @@ Dunia kita sudah ada. Sekarang waktunya bikin **alat-alat farming**.
 
 [**Chapter 5 — Tools System →**](05-tools-system.md)
 
-[← Chapter 3](03-camera-follow.md) | [Daftar Isi](../README.md)
+[← Chapter 3](03-camera-follow.md) | [Daftar Isi](index.md)

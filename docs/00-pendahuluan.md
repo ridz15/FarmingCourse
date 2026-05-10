@@ -299,4 +299,4 @@ Kamu siap untuk Chapter 1.
 
 [**Chapter 1 — Setup Project Unity →**](01-setup-project.md)
 
-[← Kembali ke Daftar Isi](../README.md)
+[← Kembali ke Daftar Isi](index.md)

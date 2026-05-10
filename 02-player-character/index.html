@@ -1,0 +1,2300 @@
+
+<!doctype html>
+<html lang="id" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course gratis (Bahasa Indonesia) untuk membuat farming game ala Stardew Valley dengan Unity 2D top-down — dari nol sampai bisa dimainkan.">
+      
+      
+        <meta name="author" content="ridz15">
+      
+      
+        <link rel="canonical" href="https://ridz15.github.io/FarmingCourse/02-player-character/">
+      
+      
+        <link rel="prev" href="../01-setup-project/">
+      
+      
+        <link rel="next" href="../03-camera-follow/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Chapter 2 — Player Character & Movement - FarmingCourse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-2-player-character-movement" class="md-skip">
+          Lewati ke isi
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="FarmingCourse" class="md-header__button md-logo" aria-label="FarmingCourse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FarmingCourse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 2 — Player Character & Movement
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green"  aria-label="Ganti ke dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Ganti ke dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Ganti ke light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Ganti ke light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cari">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Bagikan" aria-label="Bagikan" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Kosongkan" aria-label="Kosongkan" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Mempersiapkan pencarian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ridz15/FarmingCourse" title="Ke repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ridz15/FarmingCourse
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="FarmingCourse" class="md-nav__button md-logo" aria-label="FarmingCourse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FarmingCourse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ridz15/FarmingCourse" title="Ke repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ridz15/FarmingCourse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beranda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-pendahuluan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 0 — Pendahuluan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-setup-project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 — Setup Project Unity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 2 — Player Character & Movement
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 — Player Character & Movement
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tujuan-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tujuan Chapter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prasyarat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prasyarat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konsep-inti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konsep Inti
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konsep Inti">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengapa-pisah-input-movement-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengapa pisah Input, Movement, Animation?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rigidbody2d-collider2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rigidbody2D + Collider2D
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-system-modern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input System Modern
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-persiapkan-sprite-character" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1 — Persiapkan Sprite Character
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1 — Persiapkan Sprite Character">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slice-sprite-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slice Sprite Sheet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout-sprite-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout Sprite Sheet
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-buat-gameobject-player" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2 — Buat GameObject Player
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 — Buat GameObject Player">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tambah-komponen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tambah Komponen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-untuk-collision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer untuk Collision
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-setup-input-action-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3 — Setup Input Action Asset
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — Setup Input Action Asset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-c-wrapper-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate C# Wrapper Class
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-tambah-playerinput-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4 — Tambah PlayerInput Component
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-script-playerinputhandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5 — Script PlayerInputHandler
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 — Script PlayerInputHandler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penjelasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penjelasan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-script-playermovement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6 — Script PlayerMovement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6 — Script PlayerMovement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penjelasan_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penjelasan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-sekarang" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Sekarang
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-setup-animasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7 — Setup Animasi
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 7 — Setup Animasi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bikin-animation-clip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bikin Animation Clip
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buat-animasi-playeridledown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buat Animasi PlayerIdleDown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buat-animasi-lainnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buat Animasi Lainnya
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-animator-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Animator Controller
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Animator Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buat-blend-tree-idle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buat Blend Tree Idle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buat-blend-tree-walk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buat Blend Tree Walk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transitions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-script-playeranimator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8 — Script PlayerAnimator
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 8 — Script PlayerAnimator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penjelasan_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penjelasan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-animasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Animasi
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-buat-tembok-untuk-test-collision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9 — Buat Tembok untuk Test Collision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-10-bonus-footstep-audio-optional-skip-kalau-belum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10 — Bonus: Footstep Audio (Optional, Skip kalau Belum)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-11-save-sebagai-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 11 — Save sebagai Prefab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#move-action-doesnt-trigger-onmove-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Move action doesn't trigger OnMove method"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player-gerak-tapi-sprite-gak-ke-flip-animasi-salah" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player gerak tapi sprite gak ke-flip / animasi salah
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player-gak-gerak-diagonal-mulus-jadi-cuma-cardinal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player gak gerak diagonal mulus, jadi cuma cardinal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player-terbang-ke-atas-jatuh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player terbang ke atas / jatuh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprite-blink-flicker-pas-jalan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprite blink / flicker pas jalan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latihan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latihan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lanjut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lanjut
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-camera-follow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 — Camera Follow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-tilemap-world/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 — Tilemap & Dunia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-tools-system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 — Tools System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-farming-mechanics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 — Farming Mechanics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-inventory-system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 — Inventory & UI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-time-day-night/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 — Time, Day/Night & Seasons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-shop-npc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 — Shop & NPC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-save-load/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 — Save / Load
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-polish-build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 11 — Audio, Polish & Build
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-next-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 12 — Next Steps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tujuan-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tujuan Chapter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prasyarat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prasyarat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konsep-inti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konsep Inti
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konsep Inti">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengapa-pisah-input-movement-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengapa pisah Input, Movement, Animation?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rigidbody2d-collider2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rigidbody2D + Collider2D
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-system-modern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input System Modern
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-persiapkan-sprite-character" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1 — Persiapkan Sprite Character
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1 — Persiapkan Sprite Character">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slice-sprite-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slice Sprite Sheet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout-sprite-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout Sprite Sheet
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-buat-gameobject-player" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2 — Buat GameObject Player
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 — Buat GameObject Player">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tambah-komponen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tambah Komponen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-untuk-collision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer untuk Collision
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-setup-input-action-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3 — Setup Input Action Asset
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — Setup Input Action Asset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-c-wrapper-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate C# Wrapper Class
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-tambah-playerinput-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4 — Tambah PlayerInput Component
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-script-playerinputhandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5 — Script PlayerInputHandler
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 — Script PlayerInputHandler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penjelasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penjelasan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-script-playermovement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6 — Script PlayerMovement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6 — Script PlayerMovement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penjelasan_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penjelasan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-sekarang" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Sekarang
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-setup-animasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7 — Setup Animasi
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 7 — Setup Animasi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bikin-animation-clip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bikin Animation Clip
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buat-animasi-playeridledown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buat Animasi PlayerIdleDown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buat-animasi-lainnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buat Animasi Lainnya
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-animator-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Animator Controller
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Animator Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buat-blend-tree-idle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buat Blend Tree Idle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buat-blend-tree-walk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buat Blend Tree Walk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transitions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-script-playeranimator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8 — Script PlayerAnimator
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 8 — Script PlayerAnimator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penjelasan_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penjelasan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-animasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Animasi
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-buat-tembok-untuk-test-collision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9 — Buat Tembok untuk Test Collision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-10-bonus-footstep-audio-optional-skip-kalau-belum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10 — Bonus: Footstep Audio (Optional, Skip kalau Belum)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-11-save-sebagai-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 11 — Save sebagai Prefab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#move-action-doesnt-trigger-onmove-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Move action doesn't trigger OnMove method"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player-gerak-tapi-sprite-gak-ke-flip-animasi-salah" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player gerak tapi sprite gak ke-flip / animasi salah
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player-gak-gerak-diagonal-mulus-jadi-cuma-cardinal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player gak gerak diagonal mulus, jadi cuma cardinal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player-terbang-ke-atas-jatuh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player terbang ke atas / jatuh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprite-blink-flicker-pas-jalan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprite blink / flicker pas jalan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latihan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latihan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lanjut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lanjut
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ridz15/FarmingCourse/edit/main/docs/02-player-character.md" title="Ubah halaman ini" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ridz15/FarmingCourse/raw/main/docs/02-player-character.md" title="Lihat sumber halaman ini" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+<h1 id="chapter-2-player-character-movement">Chapter 2 — Player Character &amp; Movement<a class="headerlink" href="#chapter-2-player-character-movement" title="Anchor link ke section ini">&para;</a></h1>
+<blockquote>
+<p>"First, make it move. Then make it look good. Then make it feel right."</p>
+</blockquote>
+<p>Game farming dimulai dari karakter yang bisa jalan ke mana saja di farm. Di chapter ini kita bikin player dengan <strong>gerakan 4 arah</strong> (atas/bawah/kiri/kanan), <strong>animasi idle + walk</strong>, dan <strong>collider</strong> supaya nanti bisa nabrak benda.</p>
+<hr />
+<h2 id="tujuan-chapter">Tujuan Chapter<a class="headerlink" href="#tujuan-chapter" title="Anchor link ke section ini">&para;</a></h2>
+<p>Setelah chapter ini selesai, kamu akan punya:</p>
+<ul>
+<li>GameObject <code>Player</code> dengan sprite character dari Sprout Lands.</li>
+<li><code>Rigidbody2D</code> + <code>BoxCollider2D</code> di player.</li>
+<li>Script <code>PlayerInputHandler.cs</code> (baca input via Input System).</li>
+<li>Script <code>PlayerMovement.cs</code> (gerakkan player berdasarkan input).</li>
+<li>Script <code>PlayerAnimator.cs</code> (transisi animasi idle/walk per arah).</li>
+<li>Animator Controller dengan 8 animasi (Idle Up/Down/Left/Right + Walk Up/Down/Left/Right).</li>
+<li>Player bisa jalan dengan WASD/arrow keys, gak nembus tembok.</li>
+</ul>
+<hr />
+<h2 id="prasyarat">Prasyarat<a class="headerlink" href="#prasyarat" title="Anchor link ke section ini">&para;</a></h2>
+<ul>
+<li><a href="../01-setup-project/">Chapter 1</a> selesai (project setup, asset terimport).</li>
+</ul>
+<hr />
+<h2 id="konsep-inti">Konsep Inti<a class="headerlink" href="#konsep-inti" title="Anchor link ke section ini">&para;</a></h2>
+<h3 id="mengapa-pisah-input-movement-animation">Mengapa pisah Input, Movement, Animation?<a class="headerlink" href="#mengapa-pisah-input-movement-animation" title="Anchor link ke section ini">&para;</a></h3>
+<p>Anti-pola yang sering pemula buat: satu script "PlayerController.cs" gede yang baca input, gerakin, animate, attack, dll. Awalnya enak, tapi waktu mau:</p>
+<ul>
+<li>Tambah multiplayer → susah pisah AI controller vs human controller.</li>
+<li>Tambah cutscene → susah disable input tanpa freeze movement.</li>
+<li>Debug "kenapa idle anim gak jalan" → harus baca 500 baris kode.</li>
+</ul>
+<p><strong>Pisah jadi 3 script kecil</strong> punya keuntungan:</p>
+<ol>
+<li><code>PlayerInputHandler</code> — <em>expose</em> input sebagai property/event. Gak peduli sumbernya keyboard, gamepad, atau AI.</li>
+<li><code>PlayerMovement</code> — <em>konsumsi</em> input dari handler, ubah jadi gerakan. Gak peduli darimana input datang.</li>
+<li><code>PlayerAnimator</code> — baca state dari movement (apakah lagi gerak? arahnya?), set animasi.</li>
+</ol>
+<p>Pemisahan ini disebut <strong>Single Responsibility Principle</strong>. Ribet di awal, hemat banget di akhir.</p>
+<h3 id="rigidbody2d-collider2d">Rigidbody2D + Collider2D<a class="headerlink" href="#rigidbody2d-collider2d" title="Anchor link ke section ini">&para;</a></h3>
+<p>Untuk physics 2D, kombinasi yang kita pakai:</p>
+<ul>
+<li><strong>Rigidbody2D</strong> — body fisika. Jenis <code>Dynamic</code> (kita pakai ini), <code>Kinematic</code>, atau <code>Static</code>.</li>
+<li><strong>Collider2D</strong> — bentuk untuk deteksi tabrakan. <code>BoxCollider2D</code>, <code>CircleCollider2D</code>, <code>CapsuleCollider2D</code>, dll.</li>
+</ul>
+<p>Untuk top-down, kita pakai <code>Dynamic</code> Rigidbody supaya bisa kena tabrakan, <strong>TAPI</strong> kita matiin gravity (<code>Gravity Scale = 0</code>) karena kita gak punya konsep "atas-bawah" gravitasi di top-down.</p>
+<h3 id="input-system-modern">Input System Modern<a class="headerlink" href="#input-system-modern" title="Anchor link ke section ini">&para;</a></h3>
+<p><code>Input.GetKey(KeyCode.W)</code> masih jalan, tapi Input System baru (<code>InputAction</code>) lebih fleksibel:</p>
+<ul>
+<li>Bisa rebinding di runtime.</li>
+<li>Support keyboard + gamepad simultan tanpa nulis <code>if</code> panjang.</li>
+<li>Support multiple players.</li>
+</ul>
+<p>Course ini pakai <strong>PlayerInput component</strong> dengan <strong>InputAction asset</strong>, cara yang paling user-friendly.</p>
+<hr />
+<h2 id="step-1-persiapkan-sprite-character">Step 1 — Persiapkan Sprite Character<a class="headerlink" href="#step-1-persiapkan-sprite-character" title="Anchor link ke section ini">&para;</a></h2>
+<p>Kita pakai sprite character dari Sprout Lands. Filenya biasanya <code>Basic Charakter Spritesheet.png</code> (di Sprout Lands ada typo "Charakter" — jangan di-fix, biar match).</p>
+<h3 id="slice-sprite-sheet">Slice Sprite Sheet<a class="headerlink" href="#slice-sprite-sheet" title="Anchor link ke section ini">&para;</a></h3>
+<p>Pilih file PNG character:</p>
+<ul>
+<li>Inspector → <strong>Sprite Mode</strong>: <code>Multiple</code> → <strong>Apply</strong>.</li>
+<li>Klik tombol <strong>Sprite Editor</strong> (di Inspector). Window Sprite Editor muncul.</li>
+<li>Di Sprite Editor: dropdown <strong>Slice</strong> (kiri atas) → <strong>Type</strong>: <code>Grid By Cell Size</code> → <strong>Pixel Size</strong>: <code>48 x 48</code> (cek Sprout Lands dokumentasi, biasanya 48x48 untuk character mereka. Kalau beda, lihat di README pack).</li>
+<li>Pivot: <code>Bottom</code>. (Pivot bawah = anchor di kaki, bagus untuk top-down karena rendering order pakai Y position.)</li>
+<li>Klik <strong>Slice</strong> → tombol <strong>Apply</strong> (kanan atas) → close Sprite Editor.</li>
+</ul>
+<p>Sekarang sprite jadi multiple frame yang bisa dipakai untuk animasi. Klik panah expand ▶ di sprite di Project window untuk lihat frame-frame-nya, biasanya numbered <code>_0</code>, <code>_1</code>, <code>_2</code>, ...</p>
+<h3 id="layout-sprite-sheet">Layout Sprite Sheet<a class="headerlink" href="#layout-sprite-sheet" title="Anchor link ke section ini">&para;</a></h3>
+<p>Sprout Lands character spritesheet biasanya layout-nya begini (per row):</p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>Frame 0–5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Idle Down</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Walk Down</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Idle Up</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Walk Up</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Idle Right (kalau gak ada Idle Left, mirror saja)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Walk Right</td>
+</tr>
+<tr>
+<td>6+</td>
+<td>Tools, dll</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Layout-nya bisa beda tergantung pack. Buka file PNG di image viewer untuk konfirmasi mata kamu sendiri.</p>
+</blockquote>
+<hr />
+<h2 id="step-2-buat-gameobject-player">Step 2 — Buat GameObject Player<a class="headerlink" href="#step-2-buat-gameobject-player" title="Anchor link ke section ini">&para;</a></h2>
+<p>Hierarchy → klik kanan → <strong>2D Object → Sprites → Square</strong> → namain <code>Player</code>.</p>
+<p>(Square cuma placeholder. Kita akan ganti spritenya.)</p>
+<p>Set Inspector:</p>
+<ul>
+<li>Position: <code>(0, 0, 0)</code>.</li>
+<li><strong>Sprite Renderer</strong> komponen → drag salah satu frame Idle Down dari Project ke field <strong>Sprite</strong>.</li>
+<li><strong>Sorting Layer</strong>: bikin sorting layer baru <code>Characters</code> (Edit → Project Settings → Tags and Layers → Sorting Layers → klik + tambah <code>Characters</code>). Set sprite renderer Player ke layer <code>Characters</code>.</li>
+<li><strong>Order in Layer</strong>: 0 (default).</li>
+</ul>
+<h3 id="tambah-komponen">Tambah Komponen<a class="headerlink" href="#tambah-komponen" title="Anchor link ke section ini">&para;</a></h3>
+<p>Dengan <code>Player</code> terpilih, klik <strong>Add Component</strong>:</p>
+<ol>
+<li><strong>Rigidbody 2D</strong>:</li>
+<li>Body Type: <code>Dynamic</code>.</li>
+<li>Gravity Scale: <code>0</code>.</li>
+<li>Constraints → Freeze Rotation <strong>Z</strong>: ✅ (player gak boleh muter).</li>
+<li>Collision Detection: <code>Continuous</code>.</li>
+<li>Sleeping Mode: <code>Never Sleep</code>.</li>
+<li>
+<p>Interpolation: <code>Interpolate</code> (smooth pas physics step != frame).</p>
+</li>
+<li>
+<p><strong>Box Collider 2D</strong>:</p>
+</li>
+<li>Untuk top-down, kolider biasanya cuma di kaki (separuh bawah sprite).</li>
+<li>Klik <strong>Edit Collider</strong> (icon kotak) di Inspector → drag handle untuk reshape.</li>
+<li>Set <strong>Size</strong>: <code>(0.6, 0.4)</code> (sekitar 60% lebar, 40% tinggi sprite).</li>
+<li>Set <strong>Offset</strong>: <code>(0, -0.4)</code> (geser ke bawah).</li>
+</ol>
+<blockquote>
+<p>Angka di atas asumsi sprite 48×48 px @ PPU 16 = 3×3 unit. Sesuaikan sampai oval keliling kaki, gak nutup kepala.</p>
+</blockquote>
+<h3 id="layer-untuk-collision">Layer untuk Collision<a class="headerlink" href="#layer-untuk-collision" title="Anchor link ke section ini">&para;</a></h3>
+<p>Kita siapkan Layer (beda dengan Sorting Layer):</p>
+<ul>
+<li>Edit → Project Settings → Tags and Layers → <strong>Layers</strong> → tambah:</li>
+<li><code>Player</code></li>
+<li><code>Obstacles</code></li>
+<li>
+<p><code>Interactable</code></p>
+</li>
+<li>
+<p>Set GameObject Player → Inspector → <strong>Layer</strong> dropdown → pilih <code>Player</code>.</p>
+</li>
+</ul>
+<hr />
+<h2 id="step-3-setup-input-action-asset">Step 3 — Setup Input Action Asset<a class="headerlink" href="#step-3-setup-input-action-asset" title="Anchor link ke section ini">&para;</a></h2>
+<p>Untuk pakai Input System modern:</p>
+<ol>
+<li>Project window → klik kanan di <code>Assets/_Project/</code> → Create → folder <code>Input</code>.</li>
+<li>Di folder <code>Input/</code>: klik kanan → Create → <strong>Input Actions</strong>. Nama: <code>PlayerInputActions</code>.</li>
+<li>Double-click → <strong>Input Actions Editor</strong> terbuka.</li>
+</ol>
+<p>Di window Input Actions:</p>
+<ul>
+<li><strong>Action Maps</strong> (kiri) → klik <code>+</code> → buat map: <strong>Gameplay</strong>.</li>
+<li>Dengan map Gameplay terpilih, <strong>Actions</strong> (tengah) → klik <code>+</code> → bikin action: <strong>Move</strong>.</li>
+<li>Action Type: <code>Value</code></li>
+<li>Control Type: <code>Vector 2</code></li>
+<li>Pada action <code>Move</code>, klik panah ▶ untuk expand → klik <code>+</code> di Bindings → pilih <strong>Add Up/Down/Left/Right Composite</strong> (sub-menu <code>2D Vector</code>).</li>
+<li>Composite Type: <code>2D Vector</code>.</li>
+<li>Mode: <code>Digital Normalized</code> (output -1 / 0 / 1, bukan analog).</li>
+<li>Set bindings:<ul>
+<li>Up: <code>&lt;Keyboard&gt;/w</code></li>
+<li>Down: <code>&lt;Keyboard&gt;/s</code></li>
+<li>Left: <code>&lt;Keyboard&gt;/a</code></li>
+<li>Right: <code>&lt;Keyboard&gt;/d</code></li>
+</ul>
+</li>
+<li>Tambah composite kedua untuk arrow keys: Up/Down/Left/Right = <code>&lt;Keyboard&gt;/upArrow</code>, dst.</li>
+<li>
+<p>Tambah binding biasa untuk gamepad: <code>&lt;Gamepad&gt;/leftStick</code> (langsung Vector2).</p>
+</li>
+<li>
+<p>Bikin action lagi: <strong>Interact</strong>.</p>
+</li>
+<li>Action Type: <code>Button</code>.</li>
+<li>
+<p>Binding: <code>&lt;Keyboard&gt;/space</code>, <code>&lt;Gamepad&gt;/buttonSouth</code>.</p>
+</li>
+<li>
+<p>Bikin action: <strong>UseTool</strong>.</p>
+</li>
+<li>Type: <code>Button</code>.</li>
+<li>
+<p>Binding: <code>&lt;Mouse&gt;/leftButton</code>, <code>&lt;Gamepad&gt;/rightShoulder</code>.</p>
+</li>
+<li>
+<p>Bikin action: <strong>OpenInventory</strong>.</p>
+</li>
+<li>Type: <code>Button</code>.</li>
+<li>
+<p>Binding: <code>&lt;Keyboard&gt;/i</code>, <code>&lt;Keyboard&gt;/tab</code>.</p>
+</li>
+<li>
+<p>Bikin action: <strong>Hotbar1</strong> sampai <strong>Hotbar5</strong>:</p>
+</li>
+<li>Type: <code>Button</code>.</li>
+<li>Binding: <code>&lt;Keyboard&gt;/1</code> sampai <code>/5</code>.</li>
+</ul>
+<p>Klik <strong>Save Asset</strong> (kanan atas).</p>
+<h3 id="generate-c-wrapper-class">Generate C# Wrapper Class<a class="headerlink" href="#generate-c-wrapper-class" title="Anchor link ke section ini">&para;</a></h3>
+<p>Pilih asset <code>PlayerInputActions</code> → di Inspector:</p>
+<ul>
+<li>Centang <strong>Generate C# Class</strong>.</li>
+<li>Class Name: <code>PlayerInputActions</code> (default).</li>
+<li>Namespace: <code>FarmingCourse.Input</code> (atau bebas).</li>
+<li>Klik <strong>Apply</strong>.</li>
+</ul>
+<p>Unity akan generate file <code>PlayerInputActions.cs</code>. Dipakai opsional — kita pakai pendekatan PlayerInput component yang lebih sederhana.</p>
+<hr />
+<h2 id="step-4-tambah-playerinput-component">Step 4 — Tambah PlayerInput Component<a class="headerlink" href="#step-4-tambah-playerinput-component" title="Anchor link ke section ini">&para;</a></h2>
+<p>Kembali ke GameObject <code>Player</code>:</p>
+<ul>
+<li>Add Component → <strong>Player Input</strong>.</li>
+<li>Field <strong>Actions</strong>: drag asset <code>PlayerInputActions</code>.</li>
+<li><strong>Default Map</strong>: <code>Gameplay</code>.</li>
+<li><strong>Behavior</strong>: <code>Send Messages</code> (paling simpel; Unity panggil method <code>OnMove</code>, <code>OnInteract</code>, dll di script di GameObject yang sama).</li>
+</ul>
+<blockquote>
+<p><strong>Behavior</strong> options:
+- <code>Send Messages</code>: Unity panggil method <code>OnXyz()</code> via reflection. Simpel, tapi lambat &amp; error-prone (typo nama gak ke-detect).
+- <code>Broadcast Messages</code>: sama kayak Send tapi propagate ke children.
+- <code>Invoke Unity Events</code>: lewat UnityEvent di Inspector. Visual.
+- <code>Invoke C# Events</code>: register event handler manual. Paling fleksibel.</p>
+<p>Untuk learning, <code>Send Messages</code> udah cukup.</p>
+</blockquote>
+<hr />
+<h2 id="step-5-script-playerinputhandler">Step 5 — Script PlayerInputHandler<a class="headerlink" href="#step-5-script-playerinputhandler" title="Anchor link ke section ini">&para;</a></h2>
+<p>Buat script di <code>Assets/_Project/Scripts/Player/PlayerInputHandler.cs</code>:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine.InputSystem</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">FarmingCourse.Player</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="c1">/// Membaca input dari PlayerInput component (Send Messages mode)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="c1">/// dan mengekspos hasilnya sebagai property + event yang bisa</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="c1">/// dikonsumsi script lain (Movement, ToolHandler, dst).</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="na">[RequireComponent(typeof(PlayerInput))]</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlayerInputHandler</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="c1">// Input vector 2D dari WASD / left stick. Range -1..1 per axis.</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">Vector2</span><span class="w"> </span><span class="n">MoveInput</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="c1">// Apakah input gerakan sedang non-zero?</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsMoving</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">MoveInput</span><span class="p">.</span><span class="n">sqrMagnitude</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.01f</span><span class="p">;</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="c1">// Event yang dipancarkan satu kali saat tombol ditekan.</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Action</span><span class="w"> </span><span class="n">OnInteractPressed</span><span class="p">;</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Action</span><span class="w"> </span><span class="n">OnUseToolPressed</span><span class="p">;</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Action</span><span class="w"> </span><span class="n">OnOpenInventoryPressed</span><span class="p">;</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Action</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OnHotbarPressed</span><span class="p">;</span><span class="w"> </span><span class="c1">// index 0..4</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">        </span><span class="c1">// ---- Callback dari PlayerInput &quot;Send Messages&quot; ----</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnMove</span><span class="p">(</span><span class="n">InputValue</span><span class="w"> </span><span class="k">value</span><span class="p">)</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">            </span><span class="n">MoveInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">.</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">Vector2</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnInteract</span><span class="p">(</span><span class="n">InputValue</span><span class="w"> </span><span class="k">value</span><span class="p">)</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">value</span><span class="p">.</span><span class="n">isPressed</span><span class="p">)</span><span class="w"> </span><span class="n">OnInteractPressed</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">();</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnUseTool</span><span class="p">(</span><span class="n">InputValue</span><span class="w"> </span><span class="k">value</span><span class="p">)</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">value</span><span class="p">.</span><span class="n">isPressed</span><span class="p">)</span><span class="w"> </span><span class="n">OnUseToolPressed</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">();</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnOpenInventory</span><span class="p">(</span><span class="n">InputValue</span><span class="w"> </span><span class="k">value</span><span class="p">)</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">value</span><span class="p">.</span><span class="n">isPressed</span><span class="p">)</span><span class="w"> </span><span class="n">OnOpenInventoryPressed</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">();</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnHotbar1</span><span class="p">(</span><span class="n">InputValue</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">isPressed</span><span class="p">)</span><span class="w"> </span><span class="n">OnHotbarPressed</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnHotbar2</span><span class="p">(</span><span class="n">InputValue</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">isPressed</span><span class="p">)</span><span class="w"> </span><span class="n">OnHotbarPressed</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnHotbar3</span><span class="p">(</span><span class="n">InputValue</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">isPressed</span><span class="p">)</span><span class="w"> </span><span class="n">OnHotbarPressed</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnHotbar4</span><span class="p">(</span><span class="n">InputValue</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">isPressed</span><span class="p">)</span><span class="w"> </span><span class="n">OnHotbarPressed</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnHotbar5</span><span class="p">(</span><span class="n">InputValue</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">isPressed</span><span class="p">)</span><span class="w"> </span><span class="n">OnHotbarPressed</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="penjelasan">Penjelasan<a class="headerlink" href="#penjelasan" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li><code>[RequireComponent(typeof(PlayerInput))]</code> — Unity otomatis tambah <code>PlayerInput</code> component kalau belum ada. Mencegah lupa.</li>
+<li>Method <code>OnMove(InputValue value)</code> — Unity panggil ini setiap kali action <code>Move</code> ada update value. <code>value.Get&lt;Vector2&gt;()</code> ambil value yang sesuai.</li>
+<li><code>OnXxxPressed</code> events — pakai <code>?.Invoke()</code> (null-conditional) supaya gak crash kalau gak ada listener.</li>
+<li><code>IsMoving</code> property — utility supaya script lain gak perlu kalkulasi sendiri.</li>
+</ul>
+<p>Save script. Drag ke GameObject <code>Player</code> di Hierarchy.</p>
+<hr />
+<h2 id="step-6-script-playermovement">Step 6 — Script PlayerMovement<a class="headerlink" href="#step-6-script-playermovement" title="Anchor link ke section ini">&para;</a></h2>
+<p>Buat <code>Assets/_Project/Scripts/Player/PlayerMovement.cs</code>:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">FarmingCourse.Player</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">/// Menggerakkan player via Rigidbody2D berdasarkan input</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="c1">/// dari PlayerInputHandler. Mengekspos arah hadap (FacingDirection)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="c1">/// untuk dipakai animator.</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="na">[RequireComponent(typeof(Rigidbody2D), typeof(PlayerInputHandler))]</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlayerMovement</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="na">[Header(&quot;Movement&quot;)]</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">moveSpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4f</span><span class="p">;</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">runMultiplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.5f</span><span class="p">;</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="na">[Header(&quot;Smoothing&quot;)]</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="na">[Tooltip(&quot;Lerp factor untuk smoothing velocity. 1 = instant, 0 = stuck.&quot;)]</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="na">[Range(0.05f, 1f)]</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">velocitySmoothing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1f</span><span class="p">;</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">        </span><span class="c1">// Komponen ter-cache.</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">Rigidbody2D</span><span class="w"> </span><span class="n">rb</span><span class="p">;</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">PlayerInputHandler</span><span class="w"> </span><span class="n">input</span><span class="p">;</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">        </span><span class="c1">// Arah hadap terakhir (dipakai animator + tool placement).</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">        </span><span class="c1">// Default hadap bawah seperti Stardew.</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">Vector2</span><span class="w"> </span><span class="n">FacingDirection</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector2</span><span class="p">.</span><span class="n">down</span><span class="p">;</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">        </span><span class="c1">// Apakah saat ini bisa bergerak? (di-disable saat dialog, cutscene, dll.)</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">CanMove</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Awake</span><span class="p">()</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">            </span><span class="n">rb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">Rigidbody2D</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">            </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">PlayerInputHandler</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">FixedUpdate</span><span class="p">()</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">CanMove</span><span class="p">)</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">                </span><span class="n">rb</span><span class="p">.</span><span class="n">velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector2</span><span class="p">.</span><span class="n">zero</span><span class="p">;</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">                </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">            </span><span class="n">Vector2</span><span class="w"> </span><span class="n">desired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">MoveInput</span><span class="p">.</span><span class="n">normalized</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">moveSpeed</span><span class="p">;</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">            </span><span class="c1">// (Bonus) tahan Shift untuk lari — pakai Input.GetKey lama</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">            </span><span class="c1">// karena belum kita masukkan ke Input Actions. Boleh hapus</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">            </span><span class="c1">// kalau gak dipakai.</span>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKey</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">LeftShift</span><span class="p">))</span>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">                </span><span class="n">desired</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">runMultiplier</span><span class="p">;</span>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">            </span><span class="c1">// Smooth velocity supaya gak instant (opsional).</span>
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">            </span><span class="n">rb</span><span class="p">.</span><span class="n">velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector2</span><span class="p">.</span><span class="n">Lerp</span><span class="p">(</span><span class="n">rb</span><span class="p">.</span><span class="n">velocity</span><span class="p">,</span><span class="w"> </span><span class="n">desired</span><span class="p">,</span><span class="w"> </span><span class="n">velocitySmoothing</span><span class="p">);</span>
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">            </span><span class="c1">// Update facing direction ketika player benar-benar bergerak.</span>
+</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">IsMoving</span><span class="p">)</span>
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a><span class="w">                </span><span class="n">Vector2</span><span class="w"> </span><span class="n">inp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">MoveInput</span><span class="p">;</span>
+</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="w">                </span><span class="c1">// Prioritas axis dengan magnitude lebih besar (cardinal direction).</span>
+</span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">inp</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">inp</span><span class="p">.</span><span class="n">y</span><span class="p">))</span>
+</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="w">                    </span><span class="n">FacingDirection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inp</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Vector2</span><span class="p">.</span><span class="n">right</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Vector2</span><span class="p">.</span><span class="n">left</span><span class="p">;</span>
+</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="w">                </span><span class="k">else</span>
+</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a><span class="w">                    </span><span class="n">FacingDirection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inp</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Vector2</span><span class="p">.</span><span class="n">up</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Vector2</span><span class="p">.</span><span class="n">down</span><span class="p">;</span>
+</span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="penjelasan_1">Penjelasan<a class="headerlink" href="#penjelasan_1" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li><code>FixedUpdate</code> (bukan <code>Update</code>) — semua manipulasi physics dilakukan di sini supaya frame-rate independent.</li>
+<li><code>rb.velocity</code> (bukan <code>rb.MovePosition</code> atau <code>transform.Translate</code>) — biar physics engine yang handle collision response.</li>
+<li><code>FacingDirection</code> ke-update <strong>hanya saat moving</strong> — kalau player diem, dia tetap menghadap ke arah terakhir.</li>
+<li>Algoritma "prioritas axis dengan magnitude lebih besar" mengurangi flicker animasi waktu user nge-tap diagonal.</li>
+<li><code>CanMove</code> property → di-toggle false oleh dialog system, cutscene, sleep menu, dll.</li>
+<li><code>[SerializeField] private</code> — bidang serialized di Inspector tapi gak public (encapsulation tetap).</li>
+</ul>
+<p>Save. Drag ke GameObject <code>Player</code>.</p>
+<h3 id="test-sekarang">Test Sekarang<a class="headerlink" href="#test-sekarang" title="Anchor link ke section ini">&para;</a></h3>
+<p>Pencet <strong>Play</strong>. Tekan WASD. Player harus gerak. Kalau gak gerak, cek:</p>
+<ul>
+<li>Console untuk error.</li>
+<li><code>PlayerInput</code> component → field <code>Actions</code> udah di-set ke <code>PlayerInputActions</code>.</li>
+<li><code>PlayerInput</code> → Behavior = <code>Send Messages</code>.</li>
+<li>Layer <code>Player</code> udah di-set.</li>
+</ul>
+<hr />
+<h2 id="step-7-setup-animasi">Step 7 — Setup Animasi<a class="headerlink" href="#step-7-setup-animasi" title="Anchor link ke section ini">&para;</a></h2>
+<p>Sekarang waktunya animasi.</p>
+<h3 id="bikin-animation-clip">Bikin Animation Clip<a class="headerlink" href="#bikin-animation-clip" title="Anchor link ke section ini">&para;</a></h3>
+<p>Player harus terpilih di Hierarchy. Buka window <strong>Animation</strong> (Window → Animation → Animation, atau <code>Ctrl+6</code>).</p>
+<p>Window Animation muncul. Kalau kosong (no animator yet), klik <strong>Create</strong>:</p>
+<ul>
+<li>Save dialog: simpan ke <code>Assets/_Project/Animations/Player/PlayerIdleDown.anim</code>.</li>
+<li>Sekaligus Unity bikin <strong>Animator Controller</strong> di folder yang sama. Save juga: <code>PlayerAnimator.controller</code>.</li>
+</ul>
+<p>Sekarang Animator Controller <code>PlayerAnimator</code> ke-attach otomatis ke GameObject Player (cek Inspector → Animator component).</p>
+<h3 id="buat-animasi-playeridledown">Buat Animasi <code>PlayerIdleDown</code><a class="headerlink" href="#buat-animasi-playeridledown" title="Anchor link ke section ini">&para;</a></h3>
+<p>Di window Animation:</p>
+<ul>
+<li>Pastikan dropdown clip = <code>PlayerIdleDown</code>.</li>
+<li>Tombol <strong>Add Property</strong> → Sprite Renderer → Sprite → klik <code>+</code>.</li>
+<li>Frame 0:00 muncul, kunci property Sprite.</li>
+<li>Drag frame Idle Down (frame 0 dari spritesheet) ke timeline frame 0:00.</li>
+<li>Drag frame Idle Down kedua (kalau ada) ke 0:30 (atau pakai sample rate 8 fps untuk lebih lambat). Untuk Sprout Lands biasanya 4 frame idle.</li>
+<li>Set <strong>Samples</strong>: 8 (di kanan atas Animation window — kalau gak kelihatan, klik gear icon → Show Sample Rate).</li>
+</ul>
+<p>Kalau cuma 1 frame idle, gak masalah — animasi tetap valid (statis).</p>
+<h3 id="buat-animasi-lainnya">Buat Animasi Lainnya<a class="headerlink" href="#buat-animasi-lainnya" title="Anchor link ke section ini">&para;</a></h3>
+<p>Klik dropdown clip name di Animation window → <strong>Create New Clip</strong>:</p>
+<ul>
+<li><code>PlayerIdleUp</code> — frame Idle Up dari sprite.</li>
+<li><code>PlayerIdleLeft</code> — frame Idle Left.</li>
+<li><code>PlayerIdleRight</code> — frame Idle Right.</li>
+<li><code>PlayerWalkDown</code> — 4-6 frame walk down (sample rate 8-10 fps untuk gerakan natural).</li>
+<li><code>PlayerWalkUp</code></li>
+<li><code>PlayerWalkLeft</code></li>
+<li><code>PlayerWalkRight</code></li>
+</ul>
+<blockquote>
+<p><strong>Tip</strong>: Kalau Sprout Lands gak punya idle untuk left/right, pakai frame walk pertama, atau mirror sprite (set <code>Sprite Renderer → Flip X</code>). Lebih praktis: Walk Right + flip X untuk Walk Left.</p>
+<p><strong>Catatan flip X dengan Box Collider</strong>: Kalau kita pakai <code>Flip X</code> untuk left, kolider tetap sama (gak ke-flip). Pas-pas saja untuk symmetric character.</p>
+</blockquote>
+<h3 id="setup-animator-controller">Setup Animator Controller<a class="headerlink" href="#setup-animator-controller" title="Anchor link ke section ini">&para;</a></h3>
+<p>Buka Animator window (Window → Animation → Animator). Pilih GameObject Player supaya window-nya sync.</p>
+<p>Kamu akan lihat node-node animasi yang udah dibuat. Setup-nya bakal kayak gini:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[Any State] ─────┐
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>                 │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>              ┌──▼──────────────┐
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>              │  Locomotion     │  (Sub-State Machine atau Blend Tree)
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>              │                 │
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>              │  ┌───────────┐  │
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>              │  │  Idle     │  │ (4 directions via blend tree)
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>              │  └───────────┘  │
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>              │  ┌───────────┐  │
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>              │  │  Walk     │  │
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>              │  └───────────┘  │
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>              └─────────────────┘
+</span></code></pre></div>
+<p>Untuk simplenya, kita pakai <strong>Blend Tree</strong> 2D Cartesian.</p>
+<h4 id="setup-parameter">Setup Parameter<a class="headerlink" href="#setup-parameter" title="Anchor link ke section ini">&para;</a></h4>
+<p>Animator → tab <strong>Parameters</strong> (kiri):</p>
+<ul>
+<li><code>+</code> → Float → <strong>MoveX</strong></li>
+<li><code>+</code> → Float → <strong>MoveY</strong></li>
+<li><code>+</code> → Bool → <strong>IsMoving</strong></li>
+</ul>
+<h4 id="buat-blend-tree-idle">Buat Blend Tree Idle<a class="headerlink" href="#buat-blend-tree-idle" title="Anchor link ke section ini">&para;</a></h4>
+<p>Di Animator graph: klik kanan area kosong → <strong>Create State → From New Blend Tree</strong>. Namain <code>Idle</code>.</p>
+<p>Double-click <code>Idle</code> blend tree → masuk ke graph blend tree.</p>
+<ul>
+<li>Inspector → <strong>Blend Type</strong>: <code>2D Simple Directional</code>.</li>
+<li>Parameters: X = MoveX, Y = MoveY.</li>
+<li>Klik <code>+</code> 4 kali untuk Add Motion Field. Set:
+  | Motion | PosX | PosY |
+  |--------|------|------|
+  | PlayerIdleDown | 0 | -1 |
+  | PlayerIdleUp | 0 | 1 |
+  | PlayerIdleLeft | -1 | 0 |
+  | PlayerIdleRight | 1 | 0 |</li>
+</ul>
+<blockquote>
+<p>Drag clip animation ke kolom Motion-nya.</p>
+</blockquote>
+<p>Klik tombol <strong>Compute Position</strong> kalau perlu auto-set posisi dari motion (opsional).</p>
+<h4 id="buat-blend-tree-walk">Buat Blend Tree Walk<a class="headerlink" href="#buat-blend-tree-walk" title="Anchor link ke section ini">&para;</a></h4>
+<p>Klik back arrow di breadcrumb Animator → balik ke main graph. Buat blend tree baru <code>Walk</code> dengan struktur sama, tapi pakai animasi PlayerWalkXxx.</p>
+<h4 id="transitions">Transitions<a class="headerlink" href="#transitions" title="Anchor link ke section ini">&para;</a></h4>
+<p>Sekarang, dengan 2 blend tree (Idle, Walk) di Animator:</p>
+<ul>
+<li>Klik kanan <code>Idle</code> → <strong>Make Transition</strong> → klik <code>Walk</code>.</li>
+<li>Klik panah transition Idle→Walk → Inspector:</li>
+<li><strong>Has Exit Time</strong>: ❌ uncheck (transition langsung).</li>
+<li><strong>Transition Duration</strong>: 0 (instant).</li>
+<li>
+<p><strong>Conditions</strong>: <code>+</code> → <code>IsMoving = true</code>.</p>
+</li>
+<li>
+<p>Buat transition balik: Walk → Idle.</p>
+</li>
+<li>Has Exit Time: ❌</li>
+<li>
+<p>Conditions: <code>IsMoving = false</code>.</p>
+</li>
+<li>
+<p><strong>Default state</strong>: klik kanan <code>Idle</code> → <strong>Set as Layer Default State</strong>. (Idle harus default biar gak crash kalau MoveX/Y belum di-set.)</p>
+</li>
+</ul>
+<p>Save scene.</p>
+<hr />
+<h2 id="step-8-script-playeranimator">Step 8 — Script PlayerAnimator<a class="headerlink" href="#step-8-script-playeranimator" title="Anchor link ke section ini">&para;</a></h2>
+<p>Buat <code>Assets/_Project/Scripts/Player/PlayerAnimator.cs</code>:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">FarmingCourse.Player</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="c1">/// Menerjemahkan state PlayerMovement (FacingDirection, IsMoving)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="c1">/// ke parameter Animator Controller.</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="na">[RequireComponent(typeof(Animator), typeof(PlayerMovement), typeof(PlayerInputHandler))]</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlayerAnimator</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="c1">// Hash parameter (lebih cepat dari string).</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MoveX_Hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Animator</span><span class="p">.</span><span class="n">StringToHash</span><span class="p">(</span><span class="s">&quot;MoveX&quot;</span><span class="p">);</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MoveY_Hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Animator</span><span class="p">.</span><span class="n">StringToHash</span><span class="p">(</span><span class="s">&quot;MoveY&quot;</span><span class="p">);</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">IsMoving_Hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Animator</span><span class="p">.</span><span class="n">StringToHash</span><span class="p">(</span><span class="s">&quot;IsMoving&quot;</span><span class="p">);</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">Animator</span><span class="w"> </span><span class="n">animator</span><span class="p">;</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">PlayerMovement</span><span class="w"> </span><span class="n">movement</span><span class="p">;</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">PlayerInputHandler</span><span class="w"> </span><span class="n">input</span><span class="p">;</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Awake</span><span class="p">()</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">            </span><span class="n">animator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">Animator</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">            </span><span class="n">movement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">PlayerMovement</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">            </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">PlayerInputHandler</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">()</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">            </span><span class="c1">// Kirim facing direction sebagai MoveX/MoveY, supaya</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">            </span><span class="c1">// blend tree pakai arah hadap untuk pilih frame yang tepat</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">            </span><span class="c1">// (baik saat walk maupun idle).</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">            </span><span class="n">Vector2</span><span class="w"> </span><span class="n">facing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">movement</span><span class="p">.</span><span class="n">FacingDirection</span><span class="p">;</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">            </span><span class="n">animator</span><span class="p">.</span><span class="n">SetFloat</span><span class="p">(</span><span class="n">MoveX_Hash</span><span class="p">,</span><span class="w"> </span><span class="n">facing</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="w">            </span><span class="n">animator</span><span class="p">.</span><span class="n">SetFloat</span><span class="p">(</span><span class="n">MoveY_Hash</span><span class="p">,</span><span class="w"> </span><span class="n">facing</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">            </span><span class="n">animator</span><span class="p">.</span><span class="n">SetBool</span><span class="p">(</span><span class="n">IsMoving_Hash</span><span class="p">,</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">IsMoving</span><span class="p">);</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="penjelasan_2">Penjelasan<a class="headerlink" href="#penjelasan_2" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li><code>Animator.StringToHash(...)</code> → cache string jadi int. Pemanggilan <code>SetFloat(int, float)</code> lebih cepat dari <code>SetFloat(string, float)</code>. Best practice.</li>
+<li>Kita kirim <code>FacingDirection</code> (bukan <code>MoveInput</code>) karena saat player diem (<code>IsMoving=false</code>), MoveInput = 0 → blend tree fallback ke center. Dengan FacingDirection, idle anim tetap menghadap arah terakhir.</li>
+</ul>
+<p>Save. Drag ke GameObject Player.</p>
+<h3 id="test-animasi">Test Animasi<a class="headerlink" href="#test-animasi" title="Anchor link ke section ini">&para;</a></h3>
+<p>Pencet <strong>Play</strong>. WASD untuk gerak, lepas untuk idle. Animasinya harus:</p>
+<ul>
+<li>Walk down saat S/Down arrow.</li>
+<li>Walk up saat W/Up.</li>
+<li>Walk left/right.</li>
+<li>Idle setelah lepas — menghadap arah terakhir.</li>
+</ul>
+<p>Kalau frame idle salah arah, cek kembali blend tree position values (PosX, PosY).</p>
+<hr />
+<h2 id="step-9-buat-tembok-untuk-test-collision">Step 9 — Buat Tembok untuk Test Collision<a class="headerlink" href="#step-9-buat-tembok-untuk-test-collision" title="Anchor link ke section ini">&para;</a></h2>
+<p>Bikin GameObject test:</p>
+<ol>
+<li>Hierarchy → 2D Object → Sprites → Square → namain <code>Wall</code>.</li>
+<li>Set posisi <code>(3, 0, 0)</code>.</li>
+<li>Inspector → Add Component → <strong>Box Collider 2D</strong>.</li>
+<li><strong>Layer</strong>: <code>Obstacles</code>.</li>
+</ol>
+<p>Pencet Play → coba tabrak Wall → Player harus berhenti.</p>
+<p>Kalau player nembus, cek:</p>
+<ul>
+<li>Wall punya <strong>BoxCollider2D</strong>? Yes.</li>
+<li>Player <strong>Rigidbody2D</strong> Body Type = <strong>Dynamic</strong>? Yes.</li>
+<li>Project Settings → Physics 2D → Layer Collision Matrix → Player vs Obstacles centang? Yes.</li>
+</ul>
+<hr />
+<h2 id="step-10-bonus-footstep-audio-optional-skip-kalau-belum">Step 10 — Bonus: Footstep Audio (Optional, Skip kalau Belum)<a class="headerlink" href="#step-10-bonus-footstep-audio-optional-skip-kalau-belum" title="Anchor link ke section ini">&para;</a></h2>
+<p>Kita bahas detailnya di Chapter 11 (Audio). Untuk sekarang, lewati. Yang penting movement &amp; animasi udah jalan.</p>
+<hr />
+<h2 id="step-11-save-sebagai-prefab">Step 11 — Save sebagai Prefab<a class="headerlink" href="#step-11-save-sebagai-prefab" title="Anchor link ke section ini">&para;</a></h2>
+<p>GameObject Player akan dipakai di banyak scene + bisa kena reset waktu kita load save game. Lebih aman jadiin prefab.</p>
+<ol>
+<li>Drag GameObject <code>Player</code> dari Hierarchy ke <code>Assets/_Project/Prefabs/Player/</code> di Project window.</li>
+<li>Unity bikin file <code>Player.prefab</code>. GameObject di Hierarchy berubah jadi biru = sekarang prefab instance.</li>
+</ol>
+<p>Save scene (<code>Ctrl+S</code>).</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Anchor link ke section ini">&para;</a></h2>
+<h3 id="move-action-doesnt-trigger-onmove-method">"Move action doesn't trigger OnMove method"<a class="headerlink" href="#move-action-doesnt-trigger-onmove-method" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li><code>PlayerInput</code> Behavior = <code>Send Messages</code>? Yes.</li>
+<li>Method namanya <code>OnMove</code> (camelCase, persis sama dengan action name)? Yes.</li>
+<li>Method-nya <code>private</code> atau <code>public</code>, gak masalah.</li>
+<li>Action Map yang aktif <code>Gameplay</code>? Cek di Inspector PlayerInput → <code>Default Map</code>.</li>
+</ul>
+<h3 id="player-gerak-tapi-sprite-gak-ke-flip-animasi-salah">Player gerak tapi sprite gak ke-flip / animasi salah<a class="headerlink" href="#player-gerak-tapi-sprite-gak-ke-flip-animasi-salah" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Cek blend tree position di animator window.</li>
+<li>Cek script PlayerAnimator beneran nge-set MoveX/MoveY.</li>
+<li>Pakai window <strong>Animator</strong> saat Play untuk lihat parameter realtime — kalau MoveX cuma berubah jadi 0 ke ±1 sangat cepat, oversampling. Pakai <code>velocitySmoothing</code> lebih tinggi.</li>
+</ul>
+<h3 id="player-gak-gerak-diagonal-mulus-jadi-cuma-cardinal">Player gak gerak diagonal mulus, jadi cuma cardinal<a class="headerlink" href="#player-gak-gerak-diagonal-mulus-jadi-cuma-cardinal" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Itu fitur, bukan bug. <code>FacingDirection</code> selalu cardinal (atas/bawah/kiri/kanan), tapi <code>MoveInput.normalized * speed</code> boleh diagonal. Sprite tetap menghadap salah satu arah dominan.</li>
+</ul>
+<h3 id="player-terbang-ke-atas-jatuh">Player terbang ke atas / jatuh<a class="headerlink" href="#player-terbang-ke-atas-jatuh" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li><code>Rigidbody2D → Gravity Scale = 0</code>.</li>
+<li>Body Type ≠ <code>Static</code>.</li>
+</ul>
+<h3 id="sprite-blink-flicker-pas-jalan">Sprite blink / flicker pas jalan<a class="headerlink" href="#sprite-blink-flicker-pas-jalan" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Pixel Perfect Camera → Pixel Snapping ✅ + Crop Frame ✅.</li>
+<li>Camera Follow di Chapter 3 akan mengurangi ini.</li>
+</ul>
+<hr />
+<h2 id="latihan">Latihan<a class="headerlink" href="#latihan" title="Anchor link ke section ini">&para;</a></h2>
+<ol>
+<li><strong>Tambah action <code>Run</code></strong> ke Input Actions: hold <code>Shift</code> atau gamepad <code>B</code> button. Tambah event di <code>PlayerInputHandler</code> dan flag <code>IsRunning</code>. Ganti <code>Input.GetKey(LeftShift)</code> di <code>PlayerMovement</code> jadi pakai <code>input.IsRunning</code>. Cleaner!</li>
+<li><strong>Animasi <code>PlayerRun</code></strong> (kalau spritesheet ada). Bikin blend tree ketiga <code>Run</code>, transisi Idle ↔ Walk ↔ Run dengan parameter <code>Speed</code> (float). Set MoveSpeed dinamis.</li>
+<li><strong>Footstep particle / dust effect</strong> — bikin partikel kecil di kaki saat gerak. Pakai Particle System + simple emit (lihat docs Unity).</li>
+<li><strong>Dash skill</strong> — tap <code>Space</code> untuk dash 1 unit cepat ke arah hadap. Tambah cooldown 1 detik.</li>
+</ol>
+<hr />
+<h2 id="recap">Recap<a class="headerlink" href="#recap" title="Anchor link ke section ini">&para;</a></h2>
+<p>Yang sudah jalan:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Player GameObject dengan Rigidbody + Collider.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Input System dengan PlayerInputActions asset.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Script terpisah: Input, Movement, Animator.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Blend tree 2D untuk Idle dan Walk × 4 arah.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Player jalan dengan WASD/arrow, smooth, gak nembus tembok.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Prefab Player tersimpan.</li>
+</ul>
+<p>Player kita sudah bisa keluyuran. Sekarang kameranya harus ngikutin.</p>
+<hr />
+<h2 id="lanjut">Lanjut<a class="headerlink" href="#lanjut" title="Anchor link ke section ini">&para;</a></h2>
+<p><a href="../03-camera-follow/"><strong>Chapter 3 — Camera Follow (Cinemachine) →</strong></a></p>
+<p><a href="../01-setup-project/">← Chapter 1</a> | <a href="../">Daftar Isi</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../01-setup-project/" class="md-footer__link md-footer__link--prev" aria-label="Sebelumnya: Chapter 1 — Setup Project Unity">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sebelumnya
+              </span>
+              <div class="md-ellipsis">
+                Chapter 1 — Setup Project Unity
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03-camera-follow/" class="md-footer__link md-footer__link--next" aria-label="Selanjutnya: Chapter 3 — Camera Follow">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Selanjutnya
+              </span>
+              <div class="md-ellipsis">
+                Chapter 3 — Camera Follow
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 ridz15 / FarmingCourse Contributors — MIT License
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/ridz15/FarmingCourse" target="_blank" rel="noopener" title="Source repo" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.top", "navigation.footer", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Tersalin ke clipboard", "clipboard.copy": "Salin ke clipboard", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tidak ada dokumen yang sesuai", "search.result.one": "1 dokumen ditemukan", "search.result.other": "# dokumen ditemukan", "search.result.placeholder": "Ketik untuk mulai pencarian", "search.result.term.missing": "Tidak ada", "select.version": "Pilih versi"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

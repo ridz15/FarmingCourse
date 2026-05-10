@@ -1,0 +1,1288 @@
+
+<!doctype html>
+<html lang="id" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course gratis (Bahasa Indonesia) untuk membuat farming game ala Stardew Valley dengan Unity 2D top-down — dari nol sampai bisa dimainkan.">
+      
+      
+        <meta name="author" content="ridz15">
+      
+      
+        <link rel="canonical" href="https://ridz15.github.io/FarmingCourse/00-pendahuluan/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../01-setup-project/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Chapter 0 — Pendahuluan - FarmingCourse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-0-pendahuluan-persiapan" class="md-skip">
+          Lewati ke isi
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="FarmingCourse" class="md-header__button md-logo" aria-label="FarmingCourse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FarmingCourse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 0 — Pendahuluan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green"  aria-label="Ganti ke dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Ganti ke dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Ganti ke light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Ganti ke light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cari">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Bagikan" aria-label="Bagikan" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Kosongkan" aria-label="Kosongkan" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Mempersiapkan pencarian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ridz15/FarmingCourse" title="Ke repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ridz15/FarmingCourse
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="FarmingCourse" class="md-nav__button md-logo" aria-label="FarmingCourse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FarmingCourse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ridz15/FarmingCourse" title="Ke repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ridz15/FarmingCourse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beranda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 0 — Pendahuluan
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 0 — Pendahuluan
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tujuan-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tujuan Chapter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preview-akhir-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preview Akhir Course
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arsitektur-high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arsitektur High-Level
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-unity-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Install Unity Hub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-unity-editor-20223-lts" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Install Unity Editor 2022.3 LTS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Install IDE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-install-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Install Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-opsional-editor-pixel-art" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. (Opsional) Editor Pixel Art
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-tour-unity-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Tour Unity Editor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mental-model-kapan-baca-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mental Model: Kapan Baca Docs?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cara-baca-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cara Baca Console
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persiapan-mental" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persiapan Mental
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latihan-pemanasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latihan Pemanasan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lanjut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lanjut
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-setup-project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 — Setup Project Unity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-player-character/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 — Player Character & Movement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-camera-follow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 — Camera Follow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-tilemap-world/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 — Tilemap & Dunia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-tools-system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 — Tools System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-farming-mechanics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 — Farming Mechanics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-inventory-system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 — Inventory & UI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-time-day-night/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 — Time, Day/Night & Seasons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-shop-npc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 — Shop & NPC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-save-load/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 — Save / Load
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-polish-build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 11 — Audio, Polish & Build
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-next-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 12 — Next Steps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tujuan-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tujuan Chapter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preview-akhir-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preview Akhir Course
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arsitektur-high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arsitektur High-Level
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-unity-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Install Unity Hub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-unity-editor-20223-lts" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Install Unity Editor 2022.3 LTS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Install IDE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-install-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Install Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-opsional-editor-pixel-art" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. (Opsional) Editor Pixel Art
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-tour-unity-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Tour Unity Editor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mental-model-kapan-baca-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mental Model: Kapan Baca Docs?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cara-baca-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cara Baca Console
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persiapan-mental" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persiapan Mental
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latihan-pemanasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latihan Pemanasan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lanjut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lanjut
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ridz15/FarmingCourse/edit/main/docs/00-pendahuluan.md" title="Ubah halaman ini" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ridz15/FarmingCourse/raw/main/docs/00-pendahuluan.md" title="Lihat sumber halaman ini" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+<h1 id="chapter-0-pendahuluan-persiapan">Chapter 0 — Pendahuluan &amp; Persiapan<a class="headerlink" href="#chapter-0-pendahuluan-persiapan" title="Anchor link ke section ini">&para;</a></h1>
+<blockquote>
+<p>"Yang penting bukan seberapa jago kamu sekarang, tapi seberapa cepat kamu mau belajar."</p>
+</blockquote>
+<p>Selamat datang! Sebelum coding satu baris pun, di chapter ini kita siapkan <strong>mindset, tools, dan ekspektasi</strong>. Investasi 30 menit di sini akan menghemat berjam-jam frustrasi di chapter selanjutnya.</p>
+<hr />
+<h2 id="tujuan-chapter">Tujuan Chapter<a class="headerlink" href="#tujuan-chapter" title="Anchor link ke section ini">&para;</a></h2>
+<p>Setelah chapter ini, kamu akan:</p>
+<ul>
+<li>Tahu <strong>arsitektur besar</strong> game farming yang akan kita bangun (gambar besar di kepala kamu).</li>
+<li>Punya <strong>Unity Hub + Unity 2022.3 LTS</strong> terinstall.</li>
+<li>Punya <strong>IDE</strong> (Visual Studio / VS Code / Rider) yang sudah di-setup untuk Unity.</li>
+<li>Tahu cara baca <strong>Console Unity</strong> dan paham bedanya <code>Log</code>, <code>Warning</code>, <code>Error</code>.</li>
+<li>Punya <strong>mental model</strong>: kapan harus baca dokumentasi vs trial-and-error.</li>
+</ul>
+<hr />
+<h2 id="preview-akhir-course">Preview Akhir Course<a class="headerlink" href="#preview-akhir-course" title="Anchor link ke section ini">&para;</a></h2>
+<p>Bayangkan ending state-nya begini:</p>
+<ul>
+<li>Kamu pencet <strong>Play</strong> di Unity.</li>
+<li>Karakter kamu spawn di farm yang acak-acakan, masih banyak rumput dan batu.</li>
+<li>Kamu equip <strong>hoe</strong> (tekan <code>1</code>) → klik tanah → tanah jadi tilled (kotak coklat).</li>
+<li>Equip <strong>watering can</strong> (<code>2</code>) → siram tanah → warnanya jadi gelap.</li>
+<li>Equip <strong>seed</strong> (<code>3</code>) → klik tanah watered → muncul sprout kecil.</li>
+<li>Tekan <strong>B</strong> untuk tidur → hari ganti, crop tumbuh ke stage berikutnya.</li>
+<li>4 hari kemudian → crop matang → equip scythe → klik → masuk inventory.</li>
+<li>Buka <strong>shop</strong> di rumah trader → jual hasil panen → dapat coin.</li>
+<li>Beli seed baru → tanam lagi. Loop selesai.</li>
+</ul>
+<p>Itu yang kita target. Bukan AAA, tapi <strong>playable &amp; extendable</strong>.</p>
+<hr />
+<h2 id="arsitektur-high-level">Arsitektur High-Level<a class="headerlink" href="#arsitektur-high-level" title="Anchor link ke section ini">&para;</a></h2>
+<p>Sebelum koding, kita pahami dulu <strong>bagaimana sistem-sistem ini saling bicara</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────────────────────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                          PLAYER                             │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│  ┌─────────────┐  ┌──────────────┐  ┌────────────────────┐ │
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  │ PlayerInput │→│ PlayerMovement │  │ PlayerToolHandler  │ │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  └─────────────┘  └──────────────┘  └────────────────────┘ │
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└────────────────────────────────────────┬────────────────────┘
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                                         │ uses tool / item
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                                         ▼
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                         ┌──────────────────────────────┐
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                         │      TOOL  (ScriptableObject) │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                         │  Hoe / Watering / Seed / ...  │
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                         └─────┬────────────────┬───────┘
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                               │ acts on        │ requires
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                               ▼                ▼
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>              ┌─────────────────────┐   ┌──────────────────┐
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>              │  CropTileManager     │   │  Inventory       │
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>              │  (Dictionary&lt;Vector3Int, CropTileData&gt;)     │
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>              │                     │   │  - hotbar        │
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>              │  - SetTilled()      │   │  - bag           │
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>              │  - SetWatered()     │   └──────────────────┘
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>              │  - PlantSeed()      │
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>              │  - TickGrowth()  ←──┐
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>              │  - Harvest()        │
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>              └─────────────────────┘
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>                                    │ called every &quot;new day&quot;
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>                                    │
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>                         ┌──────────┴────────────┐
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>                         │   TimeManager         │
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>                         │   - Hour / Day / Season│
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>                         │   - OnDayChanged event│
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>                         └───────────────────────┘
+</span></code></pre></div>
+<p>Kalau kelihatan ribet, gak apa. Kita akan bangun <strong>satu per satu</strong>, dan tiap kotak baru jadi jelas waktu kita sampai chapter-nya.</p>
+<p>Tiga prinsip arsitektur yang akan kita pegang:</p>
+<ol>
+<li><strong>ScriptableObject untuk data</strong>. Item, crop, tool — semua jadi <em>asset file</em>, bukan hard-coded di MonoBehaviour. Bisa di-edit di Inspector tanpa nge-build ulang.</li>
+<li><strong>Event-driven communication</strong>. Inventory tidak nge-poll TimeManager. TimeManager <strong>broadcast</strong> event <code>OnDayChanged</code>, sistem lain <em>subscribe</em>. Lebih bersih, mudah di-extend.</li>
+<li><strong>Single responsibility</strong>. Satu script, satu pekerjaan. <code>PlayerMovement</code> cuma gerakin player. <code>PlayerInput</code> cuma baca input. Tergoda nyatuin? Jangan. Capek nge-debug nanti.</li>
+</ol>
+<hr />
+<h2 id="setup-tools">Setup Tools<a class="headerlink" href="#setup-tools" title="Anchor link ke section ini">&para;</a></h2>
+<h3 id="1-install-unity-hub">1. Install Unity Hub<a class="headerlink" href="#1-install-unity-hub" title="Anchor link ke section ini">&para;</a></h3>
+<p>Unity Hub adalah launcher buat manage versi Unity Editor. Download di https://unity.com/download → install seperti aplikasi biasa.</p>
+<p>Buka Unity Hub → login pakai akun Unity (gratis) atau Google.</p>
+<h3 id="2-install-unity-editor-20223-lts">2. Install Unity Editor 2022.3 LTS<a class="headerlink" href="#2-install-unity-editor-20223-lts" title="Anchor link ke section ini">&para;</a></h3>
+<p>Di Hub → tab <strong>Installs</strong> → tombol <strong>Install Editor</strong> → cari <code>2022.3.x LTS</code> (yang paling baru, misal <code>2022.3.40f1</code>).</p>
+<p>Saat dialog <em>Add modules</em>, centang:</p>
+<ul>
+<li>✅ <strong>Microsoft Visual Studio Community</strong> (kalau Windows &amp; belum punya IDE)</li>
+<li>✅ <strong>Documentation</strong> (offline docs, sangat berguna)</li>
+<li>✅ <strong>Build Support: Windows / Mac / Linux</strong> sesuai OS kamu</li>
+<li>✅ <strong>WebGL Build Support</strong> (opsional, kalau mau publish ke browser)</li>
+</ul>
+<p>Klik <strong>Install</strong>. Tunggu 10–30 menit (size ±5 GB).</p>
+<blockquote>
+<p><strong>Note Unity 6</strong>: Kalau kamu pakai Unity 6 (6000.0 LTS), semua kode di course ini akan jalan. Beberapa nama menu agak beda, akan ditandai.</p>
+</blockquote>
+<h3 id="3-install-ide">3. Install IDE<a class="headerlink" href="#3-install-ide" title="Anchor link ke section ini">&para;</a></h3>
+<p><strong>Visual Studio 2022 Community</strong> (Windows): biasanya udah ke-install bareng Unity. Pas pertama buka script, Unity akan ngasih dialog "set as default external editor". Pilih VS Community.</p>
+<p><strong>VS Code</strong> (cross-platform, ringan): install dari https://code.visualstudio.com lalu install extension:</p>
+<ul>
+<li>C# Dev Kit (Microsoft)</li>
+<li>Unity (Microsoft)</li>
+<li>Unity Tools (Tobiah Zarlez) — opsional</li>
+</ul>
+<p><strong>Rider</strong> (paling powerful, berbayar tapi ada lisensi student gratis): https://www.jetbrains.com/rider/</p>
+<p>Cara set IDE default di Unity: <strong>Edit → Preferences → External Tools → External Script Editor</strong>.</p>
+<h3 id="4-install-git">4. Install Git<a class="headerlink" href="#4-install-git" title="Anchor link ke section ini">&para;</a></h3>
+<p>Download dari https://git-scm.com → install. Kalau di Windows, centang opsi "Git Bash" supaya bisa pakai terminal unix-like.</p>
+<p>Setup awal di terminal:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Nama Kamu&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;email@kamu.com&quot;</span>
+</span></code></pre></div>
+<h3 id="5-opsional-editor-pixel-art">5. (Opsional) Editor Pixel Art<a class="headerlink" href="#5-opsional-editor-pixel-art" title="Anchor link ke section ini">&para;</a></h3>
+<p>Kalau mau bikin / edit asset sendiri:</p>
+<ul>
+<li><strong>Piskel</strong> — gratis, web-based, https://www.piskelapp.com</li>
+<li><strong>Aseprite</strong> — paling pro, USD 19.99 (atau compile sendiri dari source di GitHub: gratis)</li>
+<li><strong>LibreSprite</strong> — fork gratis Aseprite</li>
+</ul>
+<p>Course ini pakai asset Sprout Lands jadi kamu <strong>gak wajib</strong> install ini.</p>
+<hr />
+<h2 id="quick-tour-unity-editor">Quick Tour Unity Editor<a class="headerlink" href="#quick-tour-unity-editor" title="Anchor link ke section ini">&para;</a></h2>
+<p>Buka Unity Hub → <strong>New Project</strong> → pilih template <strong>2D (Built-in Render Pipeline)</strong> → kasih nama <code>FarmingCourse_Test</code> → <strong>Create</strong>.</p>
+<p>(Ini cuma test, kita bikin project beneran di Chapter 1.)</p>
+<p>Setelah Editor terbuka, kenali 5 panel utama:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌──────────────────────────────────────────────────────────┐
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│ Toolbar (Play / Pause / Step)                            │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├─────────────┬─────────────────────────┬──────────────────┤
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│             │                         │                  │
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│  Hierarchy  │      Scene / Game       │    Inspector     │
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│             │                         │                  │
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│  (semua     │  (viewport,             │  (properti       │
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│   GameObject│   Scene = editor view,  │   GameObject     │
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│   di scene) │   Game = preview play)  │   yang dipilih)  │
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│             │                         │                  │
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>├─────────────┴─────────────────────────┤                  │
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│                                       │                  │
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│       Project (file &amp; asset)          │                  │
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>│                                       │                  │
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>└───────────────────────────────────────┴──────────────────┘
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>                                  Console (di tab terpisah)
+</span></code></pre></div>
+<p><strong>Hierarchy</strong>: list semua GameObject di Scene aktif. Klik salah satu → propertinya muncul di Inspector.</p>
+<p><strong>Scene</strong>: editor view. Pakai mouse middle-click drag untuk pan, scroll untuk zoom, tahan <code>Alt + LMB drag</code> untuk rotate (di 2D biasanya gak dipakai).</p>
+<p><strong>Game</strong>: preview yang dilihat player saat Play.</p>
+<p><strong>Project</strong>: file di <code>Assets/</code> folder.</p>
+<p><strong>Inspector</strong>: panel paling penting. Semua tweaking value game terjadi di sini.</p>
+<p><strong>Console</strong> (Window → General → Console): tempat error &amp; log muncul. <strong>Buka selalu</strong> — 80% bug ketebak dari sini.</p>
+<hr />
+<h2 id="mental-model-kapan-baca-docs">Mental Model: Kapan Baca Docs?<a class="headerlink" href="#mental-model-kapan-baca-docs" title="Anchor link ke section ini">&para;</a></h2>
+<p>Pemula sering stuck karena gak tahu kapan harus googling vs baca dokumentasi vs nanya orang. Aturan praktis:</p>
+<ol>
+<li><strong>Error pas compile / play</strong> → langsung baca <strong>error message di Console</strong>. Klik error-nya → Unity bawa kamu ke baris yang error.</li>
+<li><strong>Method / class Unity yang asing</strong> (misal <code>Vector3.MoveTowards</code>) → buka https://docs.unity3d.com → search. Atau di IDE, hover nama method → "Go to Definition".</li>
+<li><strong>"Gimana cara bikin XYZ"</strong> (misal: bikin animasi swing tool) → cari di YouTube + StackOverflow. Banyak. Tapi <strong>jangan langsung copy</strong> — pahami konsepnya, baru tulis ulang.</li>
+<li><strong>Stuck &gt; 30 menit</strong> → buka Issue di repo ini, atau tanya di Discord Unity Indonesia / r/Unity3D.</li>
+</ol>
+<hr />
+<h2 id="cara-baca-console">Cara Baca Console<a class="headerlink" href="#cara-baca-console" title="Anchor link ke section ini">&para;</a></h2>
+<p>Saat Play, Console mungkin spam pesan:</p>
+<ul>
+<li><strong>🔵 Log</strong> (<code>Debug.Log</code>): info biasa, gak masalah. Bisa kamu pakai untuk debugging sendiri.</li>
+<li><strong>🟡 Warning</strong> (<code>Debug.LogWarning</code>): bukan error, tapi sesuatu yang sebaiknya kamu perhatikan. Misal sprite gak ada Pixel Per Unit yang konsisten.</li>
+<li><strong>🔴 Error</strong> (<code>Debug.LogError</code> atau exception): <strong>harus dibetulin</strong>. Game mungkin masih jalan tapi behavior-nya rusak.</li>
+</ul>
+<p>Tombol toolbar Console yang harus kamu hafal:</p>
+<ul>
+<li><strong>Clear</strong> — bersihkan list error (sering bikin lega).</li>
+<li><strong>Collapse</strong> — gabungkan error yang sama.</li>
+<li><strong>Clear on Play</strong> — auto-clear waktu pencet Play. <strong>Aktifkan ini.</strong></li>
+<li><strong>Error Pause</strong> — auto-pause game waktu ada error. Aktifkan untuk debugging serius.</li>
+</ul>
+<p>Klik double error message → Editor bawa kamu langsung ke baris kode penyebabnya.</p>
+<hr />
+<h2 id="persiapan-mental">Persiapan Mental<a class="headerlink" href="#persiapan-mental" title="Anchor link ke section ini">&para;</a></h2>
+<p>Beberapa hal yang harus kamu terima sejak awal:</p>
+<ol>
+<li><strong>Kamu akan stuck. Berkali-kali.</strong> Itu normal. Game dev = problem solving 90%, coding 10%.</li>
+<li><strong>Compile error itu teman</strong>. Mereka kasih tahu masalah persis di mana. Yang ngeri itu bug logika tanpa error — di situ kamu butuh <code>Debug.Log</code> skill.</li>
+<li><strong>Iterasi &gt; Perfeksionisme</strong>. Lebih baik punya prototype jelek yang jalan daripada dokumen rapi tanpa kode.</li>
+<li><strong>Save &amp; commit sering</strong>. <code>Ctrl+S</code> itu reflex. <code>git commit -m "..."</code> di akhir tiap session.</li>
+<li><strong>Kalau butuh istirahat, istirahat</strong>. Bug-stuck hari ini sering ke-solve dalam 30 detik besok pagi. Otak butuh tidur.</li>
+</ol>
+<hr />
+<h2 id="latihan-pemanasan">Latihan Pemanasan<a class="headerlink" href="#latihan-pemanasan" title="Anchor link ke section ini">&para;</a></h2>
+<p>Sebelum lanjut ke Chapter 1, coba ini di project test kamu:</p>
+<ol>
+<li><strong>Bikin GameObject baru</strong>: Hierarchy → klik kanan → Create Empty → rename "Hello".</li>
+<li><strong>Tambahkan komponen Rigidbody2D</strong>: dengan GameObject "Hello" terpilih → Inspector → Add Component → Rigidbody 2D.</li>
+<li><strong>Bikin script</strong> <code>Hello.cs</code>:</li>
+<li>Project window → klik kanan → Create → C# Script → nama <code>Hello</code>.</li>
+<li>Drag script ke GameObject "Hello".</li>
+<li>Double-click script untuk buka di IDE.</li>
+<li>Tulis kode ini di <code>Hello.cs</code>:</li>
+</ol>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Hello</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&quot;Halo dari Farming Course!&quot;</span><span class="p">);</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">()</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Space</span><span class="p">))</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&quot;Spasi ditekan di frame &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Time</span><span class="p">.</span><span class="n">frameCount</span><span class="p">);</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Save (<code>Ctrl+S</code> di IDE). Balik ke Unity → tunggu compile (lihat lingkaran spinning di kanan bawah).</li>
+<li>Pencet <strong>Play</strong>. Lihat Console. Tekan spacebar beberapa kali.</li>
+</ol>
+<p>Kalau kamu lihat:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Halo dari Farming Course!
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Spasi ditekan di frame 124
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Spasi ditekan di frame 198
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>...
+</span></code></pre></div>
+<p>🎉 <strong>Lulus.</strong> Kamu sudah punya alur dasar: tulis script → Unity compile → Play → lihat hasil.</p>
+<p>Kalau gak muncul, biasanya:</p>
+<ul>
+<li>IDE belum save (pastikan Ctrl+S).</li>
+<li>Script belum di-attach ke GameObject.</li>
+<li>Ada compile error di Console (warna merah). Klik untuk lihat detailnya.</li>
+</ul>
+<hr />
+<h2 id="recap">Recap<a class="headerlink" href="#recap" title="Anchor link ke section ini">&para;</a></h2>
+<p>Yang sudah kamu punya:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Unity Hub + Unity 2022.3 LTS terinstall.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> IDE terhubung ke Unity.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Tahu 5 panel utama Editor.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Bisa bikin GameObject + script + jalankan &amp; lihat log.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Mindset: stuck = normal, error = teman, commit sering.</li>
+</ul>
+<p>Kamu siap untuk Chapter 1.</p>
+<hr />
+<h2 id="lanjut">Lanjut<a class="headerlink" href="#lanjut" title="Anchor link ke section ini">&para;</a></h2>
+<p><a href="../01-setup-project/"><strong>Chapter 1 — Setup Project Unity →</strong></a></p>
+<p><a href="../">← Kembali ke Daftar Isi</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Sebelumnya: Beranda">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sebelumnya
+              </span>
+              <div class="md-ellipsis">
+                Beranda
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../01-setup-project/" class="md-footer__link md-footer__link--next" aria-label="Selanjutnya: Chapter 1 — Setup Project Unity">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Selanjutnya
+              </span>
+              <div class="md-ellipsis">
+                Chapter 1 — Setup Project Unity
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 ridz15 / FarmingCourse Contributors — MIT License
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/ridz15/FarmingCourse" target="_blank" rel="noopener" title="Source repo" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.top", "navigation.footer", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Tersalin ke clipboard", "clipboard.copy": "Salin ke clipboard", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tidak ada dokumen yang sesuai", "search.result.one": "1 dokumen ditemukan", "search.result.other": "# dokumen ditemukan", "search.result.placeholder": "Ketik untuk mulai pencarian", "search.result.term.missing": "Tidak ada", "select.version": "Pilih versi"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

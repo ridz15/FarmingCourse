@@ -1,0 +1,1856 @@
+
+<!doctype html>
+<html lang="id" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course gratis (Bahasa Indonesia) untuk membuat farming game ala Stardew Valley dengan Unity 2D top-down — dari nol sampai bisa dimainkan.">
+      
+      
+        <meta name="author" content="ridz15">
+      
+      
+        <link rel="canonical" href="https://ridz15.github.io/FarmingCourse/11-polish-build/">
+      
+      
+        <link rel="prev" href="../10-save-load/">
+      
+      
+        <link rel="next" href="../12-next-steps/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Chapter 11 — Audio, Polish & Build - FarmingCourse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-11-audio-polish-build" class="md-skip">
+          Lewati ke isi
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="FarmingCourse" class="md-header__button md-logo" aria-label="FarmingCourse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FarmingCourse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 11 — Audio, Polish & Build
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green"  aria-label="Ganti ke dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Ganti ke dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Ganti ke light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Ganti ke light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cari">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Bagikan" aria-label="Bagikan" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Kosongkan" aria-label="Kosongkan" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Mempersiapkan pencarian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ridz15/FarmingCourse" title="Ke repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ridz15/FarmingCourse
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="FarmingCourse" class="md-nav__button md-logo" aria-label="FarmingCourse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FarmingCourse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ridz15/FarmingCourse" title="Ke repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ridz15/FarmingCourse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beranda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-pendahuluan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 0 — Pendahuluan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-setup-project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 — Setup Project Unity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-player-character/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 — Player Character & Movement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-camera-follow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 — Camera Follow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-tilemap-world/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 — Tilemap & Dunia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-tools-system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 — Tools System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-farming-mechanics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 — Farming Mechanics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-inventory-system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 — Inventory & UI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-time-day-night/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 — Time, Day/Night & Seasons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-shop-npc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 — Shop & NPC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-save-load/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 — Save / Load
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 11 — Audio, Polish & Build
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 11 — Audio, Polish & Build
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tujuan-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tujuan Chapter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prasyarat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prasyarat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-bikin-audiomanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1 — Bikin AudioManager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-musicseasoncontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2 — MusicSeasonController
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-sfx-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3 — SFX Triggers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — SFX Triggers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#footstep-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Footstep Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-particles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4 — Particles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4 — Particles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dirt-explosion-saat-till" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dirt Explosion saat Till
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#water-splash-saat-watering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Water Splash saat Watering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harvest-sparkle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Harvest Sparkle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-camera-shake-cinemachine-impulse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5 — Camera Shake (Cinemachine Impulse)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 — Camera Shake (Cinemachine Impulse)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-di-vcam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup di Vcam
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-impulse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trigger Impulse
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-hit-stop-time-slow-polish-lanjut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6 — Hit Stop / Time Slow (Polish Lanjut)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-settings-ui-volume-slider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7 — Settings UI Volume Slider
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-sprite-outline-hover-effect-polish" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8 — Sprite Outline / Hover Effect (Polish)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-build-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9 — Build Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 9 — Build Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-build-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      File → Build Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player-settings-klik-player-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player Settings (klik "Player Settings")
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Player Settings (klik "Player Settings")">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolution-and-presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolution and Presentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splash-image-personal-unity-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Splash Image (Personal / Unity Pro)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publishing Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-10-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10 — Build!
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 10 — Build!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webgl-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      WebGL Build
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mac &amp; Linux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-11-itchio-publish-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 11 — Itch.io Publish (Optional)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-12-performance-profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 12 — Performance Profiling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-13-bug-hunt-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 13 — Bug Hunt Final
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latihan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latihan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lanjut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lanjut
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-next-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 12 — Next Steps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tujuan-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tujuan Chapter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prasyarat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prasyarat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-bikin-audiomanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1 — Bikin AudioManager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-musicseasoncontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2 — MusicSeasonController
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-sfx-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3 — SFX Triggers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — SFX Triggers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#footstep-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Footstep Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-particles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4 — Particles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4 — Particles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dirt-explosion-saat-till" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dirt Explosion saat Till
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#water-splash-saat-watering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Water Splash saat Watering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harvest-sparkle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Harvest Sparkle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-camera-shake-cinemachine-impulse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5 — Camera Shake (Cinemachine Impulse)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 — Camera Shake (Cinemachine Impulse)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-di-vcam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup di Vcam
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-impulse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trigger Impulse
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-hit-stop-time-slow-polish-lanjut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6 — Hit Stop / Time Slow (Polish Lanjut)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-settings-ui-volume-slider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7 — Settings UI Volume Slider
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-sprite-outline-hover-effect-polish" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8 — Sprite Outline / Hover Effect (Polish)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-build-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9 — Build Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 9 — Build Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-build-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      File → Build Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player-settings-klik-player-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player Settings (klik "Player Settings")
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Player Settings (klik "Player Settings")">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolution-and-presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolution and Presentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splash-image-personal-unity-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Splash Image (Personal / Unity Pro)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publishing Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-10-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10 — Build!
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 10 — Build!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webgl-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      WebGL Build
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mac &amp; Linux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-11-itchio-publish-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 11 — Itch.io Publish (Optional)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-12-performance-profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 12 — Performance Profiling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-13-bug-hunt-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 13 — Bug Hunt Final
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latihan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latihan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lanjut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lanjut
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ridz15/FarmingCourse/edit/main/docs/11-polish-build.md" title="Ubah halaman ini" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ridz15/FarmingCourse/raw/main/docs/11-polish-build.md" title="Lihat sumber halaman ini" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+<h1 id="chapter-11-audio-polish-build">Chapter 11 — Audio, Polish &amp; Build<a class="headerlink" href="#chapter-11-audio-polish-build" title="Anchor link ke section ini">&para;</a></h1>
+<blockquote>
+<p>"Polish adalah hal-hal kecil yang gak ada player notice — sampai mereka gak ada."</p>
+</blockquote>
+<p>Game-nya playable. Tapi belum <strong>mantap</strong>. Di chapter ini kita kasih audio, screenshake, particles, juice, dan akhirnya <strong>build</strong> ke file executable.</p>
+<hr />
+<h2 id="tujuan-chapter">Tujuan Chapter<a class="headerlink" href="#tujuan-chapter" title="Anchor link ke section ini">&para;</a></h2>
+<ul>
+<li>Audio Manager dengan music + SFX system, volume control.</li>
+<li>BGM per season.</li>
+<li>SFX trigger-based: footstep, hoe swing, water splash, harvest, coin.</li>
+<li>Camera shake saat impact (hoe, harvest).</li>
+<li>Particle effects: dirt explosion saat till, water drips, harvest sparkle.</li>
+<li>Build setting &amp; build executable (Windows / Mac / WebGL).</li>
+</ul>
+<hr />
+<h2 id="prasyarat">Prasyarat<a class="headerlink" href="#prasyarat" title="Anchor link ke section ini">&para;</a></h2>
+<ul>
+<li><a href="../10-save-load/">Chapter 10</a> selesai (game complete).</li>
+</ul>
+<hr />
+<h2 id="step-1-bikin-audiomanager">Step 1 — Bikin AudioManager<a class="headerlink" href="#step-1-bikin-audiomanager" title="Anchor link ke section ini">&para;</a></h2>
+<p><code>Assets/_Project/Scripts/Audio/AudioManager.cs</code>:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">FarmingCourse.Audio</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AudioManager</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">AudioManager</span><span class="w"> </span><span class="n">Instance</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="na">[Header(&quot;Audio Sources&quot;)]</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">AudioSource</span><span class="w"> </span><span class="n">musicSource</span><span class="p">;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">AudioSource</span><span class="w"> </span><span class="n">sfxSource</span><span class="p">;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">AudioSource</span><span class="w"> </span><span class="n">ambientSource</span><span class="p">;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="na">[Header(&quot;Volumes&quot;)]</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="na">[Range(0, 1)]</span><span class="w"> </span><span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">musicVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">;</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="na">[Range(0, 1)]</span><span class="w"> </span><span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">sfxVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.8f</span><span class="p">;</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">MusicVolume</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">            </span><span class="k">get</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">musicVolume</span><span class="p">;</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">            </span><span class="k">set</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">musicVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mathf</span><span class="p">.</span><span class="n">Clamp01</span><span class="p">(</span><span class="k">value</span><span class="p">);</span><span class="w"> </span><span class="n">musicSource</span><span class="p">.</span><span class="n">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">musicVolume</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">SfxVolume</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">            </span><span class="k">get</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">sfxVolume</span><span class="p">;</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">            </span><span class="k">set</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">sfxVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mathf</span><span class="p">.</span><span class="n">Clamp01</span><span class="p">(</span><span class="k">value</span><span class="p">);</span><span class="w"> </span><span class="n">sfxSource</span><span class="p">.</span><span class="n">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sfxVolume</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Awake</span><span class="p">()</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Instance</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Instance</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Destroy</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">            </span><span class="n">Instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">            </span><span class="n">DontDestroyOnLoad</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">            </span><span class="n">ApplyVolumes</span><span class="p">();</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ApplyVolumes</span><span class="p">()</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">musicSource</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="n">musicSource</span><span class="p">.</span><span class="n">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">musicVolume</span><span class="p">;</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sfxSource</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="n">sfxSource</span><span class="p">.</span><span class="n">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sfxVolume</span><span class="p">;</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ambientSource</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="n">ambientSource</span><span class="p">.</span><span class="n">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sfxVolume</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.6f</span><span class="p">;</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PlayMusic</span><span class="p">(</span><span class="n">AudioClip</span><span class="w"> </span><span class="n">clip</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">)</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">musicSource</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">clip</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">musicSource</span><span class="p">.</span><span class="n">clip</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">clip</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">musicSource</span><span class="p">.</span><span class="n">isPlaying</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">            </span><span class="n">musicSource</span><span class="p">.</span><span class="n">clip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clip</span><span class="p">;</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">            </span><span class="n">musicSource</span><span class="p">.</span><span class="n">loop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loop</span><span class="p">;</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">            </span><span class="n">musicSource</span><span class="p">.</span><span class="n">Play</span><span class="p">();</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">StopMusic</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">musicSource</span><span class="o">?.</span><span class="n">Stop</span><span class="p">();</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PlaySfx</span><span class="p">(</span><span class="n">AudioClip</span><span class="w"> </span><span class="n">clip</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">volumeScale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1f</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">pitch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1f</span><span class="p">)</span>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sfxSource</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">clip</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">            </span><span class="n">sfxSource</span><span class="p">.</span><span class="n">pitch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pitch</span><span class="p">;</span>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">            </span><span class="n">sfxSource</span><span class="p">.</span><span class="n">PlayOneShot</span><span class="p">(</span><span class="n">clip</span><span class="p">,</span><span class="w"> </span><span class="n">volumeScale</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sfxVolume</span><span class="p">);</span>
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">        </span><span class="c1">/// Play SFX dengan random pitch (untuk variation).</span>
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PlaySfxRandomPitch</span><span class="p">(</span><span class="n">AudioClip</span><span class="w"> </span><span class="n">clip</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">minPitch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.9f</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">maxPitch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.1f</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">volumeScale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1f</span><span class="p">)</span>
+</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="n">pitch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">minPitch</span><span class="p">,</span><span class="w"> </span><span class="n">maxPitch</span><span class="p">);</span>
+</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="w">            </span><span class="n">PlaySfx</span><span class="p">(</span><span class="n">clip</span><span class="p">,</span><span class="w"> </span><span class="n">volumeScale</span><span class="p">,</span><span class="w"> </span><span class="n">pitch</span><span class="p">);</span>
+</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Drag ke <code>_Managers</code>. Tambah 3 child AudioSource GameObject (atau langsung 3 AudioSource component di same GameObject):</p>
+<ul>
+<li><strong>MusicSource</strong> — Loop ✅, Spatial Blend = 0 (2D).</li>
+<li><strong>SfxSource</strong> — Loop ❌, Spatial Blend = 0.</li>
+<li><strong>AmbientSource</strong> — Loop ✅, Spatial Blend = 0, untuk birds chirping dll.</li>
+</ul>
+<p>Drag references di Inspector AudioManager.</p>
+<hr />
+<h2 id="step-2-musicseasoncontroller">Step 2 — <code>MusicSeasonController</code><a class="headerlink" href="#step-2-musicseasoncontroller" title="Anchor link ke section ini">&para;</a></h2>
+<p>Music ganti per season:</p>
+<p><code>Assets/_Project/Scripts/Audio/MusicSeasonController.cs</code>:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">FarmingCourse.Time</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">FarmingCourse.Farming</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">FarmingCourse.Audio</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">{</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MusicSeasonController</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">AudioClip</span><span class="w"> </span><span class="n">springMusic</span><span class="p">;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">AudioClip</span><span class="w"> </span><span class="n">summerMusic</span><span class="p">;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">AudioClip</span><span class="w"> </span><span class="n">fallMusic</span><span class="p">;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">AudioClip</span><span class="w"> </span><span class="n">winterMusic</span><span class="p">;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">AudioClip</span><span class="w"> </span><span class="n">nightMusic</span><span class="p">;</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeManager</span><span class="p">.</span><span class="n">Instance</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">                </span><span class="n">TimeManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">OnSeasonChanged</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">OnSeason</span><span class="p">;</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">                </span><span class="n">TimeManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">OnTimeChanged</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">OnTime</span><span class="p">;</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">                </span><span class="n">OnSeason</span><span class="p">(</span><span class="n">TimeManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Season</span><span class="p">,</span><span class="w"> </span><span class="n">TimeManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Year</span><span class="p">);</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnDestroy</span><span class="p">()</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeManager</span><span class="p">.</span><span class="n">Instance</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">                </span><span class="n">TimeManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">OnSeasonChanged</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">OnSeason</span><span class="p">;</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">                </span><span class="n">TimeManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">OnTimeChanged</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">OnTime</span><span class="p">;</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnSeason</span><span class="p">(</span><span class="n">Season</span><span class="w"> </span><span class="n">season</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">)</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">IsNight</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">            </span><span class="n">AudioClip</span><span class="w"> </span><span class="n">clip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">season</span><span class="w"> </span><span class="k">switch</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">                </span><span class="n">Season</span><span class="p">.</span><span class="n">Spring</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">springMusic</span><span class="p">,</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">                </span><span class="n">Season</span><span class="p">.</span><span class="n">Summer</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">summerMusic</span><span class="p">,</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">                </span><span class="n">Season</span><span class="p">.</span><span class="n">Fall</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">fallMusic</span><span class="p">,</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">                </span><span class="n">Season</span><span class="p">.</span><span class="n">Winter</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">winterMusic</span><span class="p">,</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">                </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">springMusic</span><span class="p">,</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">            </span><span class="p">};</span>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">            </span><span class="n">AudioManager</span><span class="p">.</span><span class="n">Instance</span><span class="o">?.</span><span class="n">PlayMusic</span><span class="p">(</span><span class="n">clip</span><span class="p">);</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnTime</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">hour</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">minute</span><span class="p">)</span>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">            </span><span class="c1">// Switch ke night music di malam.</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">            </span><span class="kt">bool</span><span class="w"> </span><span class="n">nowNight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TimeManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">IsNight</span><span class="p">;</span>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">            </span><span class="c1">// (Logic untuk smooth transition bisa ditambah dengan FadeMusic coroutine.)</span>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="step-3-sfx-triggers">Step 3 — SFX Triggers<a class="headerlink" href="#step-3-sfx-triggers" title="Anchor link ke section ini">&para;</a></h2>
+<p>Tambah <code>AudioClip</code> references di <code>ToolSO</code> &amp; subclass-nya. Lalu di <code>ToolSO.Use</code> panggil <code>AudioManager.Instance?.PlaySfx(useSfx)</code>.</p>
+<p>Sample SFX (cari di freesound.org):</p>
+<ul>
+<li><strong>Footstep on grass</strong>: subscribe di Player movement, play tiap 0.4 detik saat moving.</li>
+<li><strong>Hoe thud</strong>: dirt impact.</li>
+<li><strong>Water splash</strong>: pour sound.</li>
+<li><strong>Plant seed</strong>: light rustle.</li>
+<li><strong>Harvest</strong>: snap.</li>
+<li><strong>Coin</strong>: ka-ching.</li>
+<li><strong>Sleep</strong>: zzz / fade.</li>
+</ul>
+<h3 id="footstep-implementation">Footstep Implementation<a class="headerlink" href="#footstep-implementation" title="Anchor link ke section ini">&para;</a></h3>
+<p><code>Assets/_Project/Scripts/Player/PlayerFootsteps.cs</code>:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">FarmingCourse.Audio</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">FarmingCourse.Player</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="na">[RequireComponent(typeof(PlayerInputHandler))]</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlayerFootsteps</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">AudioClip</span><span class="p">[]</span><span class="w"> </span><span class="n">grassFootsteps</span><span class="p">;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">stepInterval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.4f</span><span class="p">;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">PlayerInputHandler</span><span class="w"> </span><span class="n">input</span><span class="p">;</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">timer</span><span class="p">;</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Awake</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">PlayerInputHandler</span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">()</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">input</span><span class="p">.</span><span class="n">IsMoving</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">            </span><span class="n">timer</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span><span class="p">;</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">timer</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">stepInterval</span><span class="p">)</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">                </span><span class="n">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">grassFootsteps</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">grassFootsteps</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">                    </span><span class="kt">var</span><span class="w"> </span><span class="n">clip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grassFootsteps</span><span class="p">[</span><span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">grassFootsteps</span><span class="p">.</span><span class="n">Length</span><span class="p">)];</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">                    </span><span class="n">AudioManager</span><span class="p">.</span><span class="n">Instance</span><span class="o">?.</span><span class="n">PlaySfxRandomPitch</span><span class="p">(</span><span class="n">clip</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.1f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4f</span><span class="p">);</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Drag ke Player. Set 4-5 grass-footstep clips.</p>
+<hr />
+<h2 id="step-4-particles">Step 4 — Particles<a class="headerlink" href="#step-4-particles" title="Anchor link ke section ini">&para;</a></h2>
+<h3 id="dirt-explosion-saat-till">Dirt Explosion saat Till<a class="headerlink" href="#dirt-explosion-saat-till" title="Anchor link ke section ini">&para;</a></h3>
+<ol>
+<li>GameObject → Effects → Particle System → namain <code>DirtParticle</code>.</li>
+<li>Customize:</li>
+<li>Duration: 0.3</li>
+<li>Start Lifetime: 0.4-0.6</li>
+<li>Start Speed: 2</li>
+<li>Start Size: 0.1</li>
+<li>Start Color: warna coklat tanah (varied)</li>
+<li>Emission: 0 (we'll burst manually)</li>
+<li>Burst: 1 burst di time 0, count 8.</li>
+<li>Shape: Cone, angle 25, radius 0.2.</li>
+<li>Velocity over Lifetime: y-positive (terbang ke atas) lalu turun karena gravity.</li>
+<li>
+<p>Renderer: Material default 2D, Sorting Layer Default, order 4.</p>
+</li>
+<li>
+<p>Save sebagai prefab <code>DirtBurstParticle.prefab</code>.</p>
+</li>
+</ol>
+<p>Spawn dari CropTileManager.TryTillSingle setelah berhasil:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">dirtBurstPrefab</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">TryTillSingle</span><span class="p">(</span><span class="n">Vector3Int</span><span class="w"> </span><span class="n">cell</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="c1">// ... existing logic ...</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dirtBurstPrefab</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="n">Vector3</span><span class="w"> </span><span class="n">worldPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">farmableTilemap</span><span class="p">.</span><span class="n">GetCellCenterWorld</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instantiate</span><span class="p">(</span><span class="n">dirtBurstPrefab</span><span class="p">,</span><span class="w"> </span><span class="n">worldPos</span><span class="p">,</span><span class="w"> </span><span class="n">Quaternion</span><span class="p">.</span><span class="n">identity</span><span class="p">);</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="n">Destroy</span><span class="p">(</span><span class="n">go</span><span class="p">,</span><span class="w"> </span><span class="mf">1.5f</span><span class="p">);</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="water-splash-saat-watering">Water Splash saat Watering<a class="headerlink" href="#water-splash-saat-watering" title="Anchor link ke section ini">&para;</a></h3>
+<p>Same pattern: prefab <code>WaterSplashParticle</code> dengan blue color, smaller.</p>
+<h3 id="harvest-sparkle">Harvest Sparkle<a class="headerlink" href="#harvest-sparkle" title="Anchor link ke section ini">&para;</a></h3>
+<p>Cyan/yellow stars burst.</p>
+<hr />
+<h2 id="step-5-camera-shake-cinemachine-impulse">Step 5 — Camera Shake (Cinemachine Impulse)<a class="headerlink" href="#step-5-camera-shake-cinemachine-impulse" title="Anchor link ke section ini">&para;</a></h2>
+<h3 id="setup-di-vcam">Setup di Vcam<a class="headerlink" href="#setup-di-vcam" title="Anchor link ke section ini">&para;</a></h3>
+<ol>
+<li>Pilih CM vcam1 → Add Extension → <strong>Cinemachine Impulse Listener</strong>.</li>
+</ol>
+<h3 id="trigger-impulse">Trigger Impulse<a class="headerlink" href="#trigger-impulse" title="Anchor link ke section ini">&para;</a></h3>
+<p>Di tool action (e.g., HoeToolSO.Use after success):</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">impulseStrength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.05f</span><span class="p">;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">Use</span><span class="p">(</span><span class="n">Vector3</span><span class="w"> </span><span class="n">userPosition</span><span class="p">,</span><span class="w"> </span><span class="n">Vector3Int</span><span class="w"> </span><span class="n">targetTile</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CropTileManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">TryTill</span><span class="p">(</span><span class="n">targetTile</span><span class="p">,</span><span class="w"> </span><span class="n">tillRadius</span><span class="p">);</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">success</span><span class="p">)</span><span class="w"> </span><span class="n">AudioManager</span><span class="p">.</span><span class="n">Instance</span><span class="o">?.</span><span class="n">PlaySfx</span><span class="p">(</span><span class="n">useSfx</span><span class="p">);</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">success</span><span class="p">)</span><span class="w"> </span><span class="n">ImpulseHelper</span><span class="p">.</span><span class="n">Generate</span><span class="p">(</span><span class="n">impulseStrength</span><span class="p">);</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">success</span><span class="p">;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>Assets/_Project/Scripts/Utility/ImpulseHelper.cs</code>:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cinemachine</span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">FarmingCourse.Utility</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">{</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ImpulseHelper</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">CinemachineImpulseSource</span><span class="w"> </span><span class="n">source</span><span class="p">;</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Generate</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">strength</span><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">source</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GameObject</span><span class="p">(</span><span class="s">&quot;ImpulseSource&quot;</span><span class="p">);</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">                </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">go</span><span class="p">.</span><span class="n">AddComponent</span><span class="o">&lt;</span><span class="n">CinemachineImpulseSource</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">                </span><span class="n">source</span><span class="p">.</span><span class="n">m_DefaultVelocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="p">;</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">            </span><span class="n">source</span><span class="p">.</span><span class="n">GenerateImpulse</span><span class="p">(</span><span class="n">strength</span><span class="p">);</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p><strong>Note</strong>: Kalau pakai Cinemachine 3.x (Unity 6), namespace berbeda (<code>Unity.Cinemachine</code>). Nama class juga: <code>CinemachineImpulseSource</code>.</p>
+</blockquote>
+<hr />
+<h2 id="step-6-hit-stop-time-slow-polish-lanjut">Step 6 — Hit Stop / Time Slow (Polish Lanjut)<a class="headerlink" href="#step-6-hit-stop-time-slow-polish-lanjut" title="Anchor link ke section ini">&para;</a></h2>
+<p>Trigger <code>Time.timeScale = 0.05f</code> selama 0.05 detik saat aksi penting (harvest crop final stage). Ngasih feedback "punch".</p>
+<p>Skip detail. Cari "hit stop unity" di YouTube untuk implementation.</p>
+<hr />
+<h2 id="step-7-settings-ui-volume-slider">Step 7 — Settings UI Volume Slider<a class="headerlink" href="#step-7-settings-ui-volume-slider" title="Anchor link ke section ini">&para;</a></h2>
+<p>Tambahkan ke PauseMenu: 2 slider untuk Music &amp; SFX.</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">UnityEngine</span><span class="p">.</span><span class="n">UI</span><span class="p">.</span><span class="n">Slider</span><span class="w"> </span><span class="n">musicSlider</span><span class="p">;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">UnityEngine</span><span class="p">.</span><span class="n">UI</span><span class="p">.</span><span class="n">Slider</span><span class="w"> </span><span class="n">sfxSlider</span><span class="p">;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Awake</span><span class="p">()</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="c1">// ... existing</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">musicSlider</span><span class="p">.</span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AudioManager</span><span class="p">.</span><span class="n">Instance</span><span class="o">?.</span><span class="n">MusicVolume</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="n">sfxSlider</span><span class="p">.</span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AudioManager</span><span class="p">.</span><span class="n">Instance</span><span class="o">?.</span><span class="n">SfxVolume</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="mf">0.8f</span><span class="p">;</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="n">musicSlider</span><span class="p">.</span><span class="n">onValueChanged</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AudioManager</span><span class="p">.</span><span class="n">Instance</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="n">AudioManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">MusicVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="n">sfxSlider</span><span class="p">.</span><span class="n">onValueChanged</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AudioManager</span><span class="p">.</span><span class="n">Instance</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="n">AudioManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">SfxVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Persistent: simpan ke PlayerPrefs:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">PlayerPrefs</span><span class="p">.</span><span class="n">SetFloat</span><span class="p">(</span><span class="s">&quot;musicVolume&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">PlayerPrefs</span><span class="p">.</span><span class="n">Save</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Load di AudioManager.Awake:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">musicVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PlayerPrefs</span><span class="p">.</span><span class="n">GetFloat</span><span class="p">(</span><span class="s">&quot;musicVolume&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">);</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">sfxVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PlayerPrefs</span><span class="p">.</span><span class="n">GetFloat</span><span class="p">(</span><span class="s">&quot;sfxVolume&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.8f</span><span class="p">);</span>
+</span></code></pre></div>
+<hr />
+<h2 id="step-8-sprite-outline-hover-effect-polish">Step 8 — Sprite Outline / Hover Effect (Polish)<a class="headerlink" href="#step-8-sprite-outline-hover-effect-polish" title="Anchor link ke section ini">&para;</a></h2>
+<p>Saat mouse hover di interactable (NPC, crop matang), tambah sparkle / glow.</p>
+<p>Sederhana: Material outline shader. Setup pakai URP shader graph atau import asset gratis "Sprite Outline" dari Asset Store.</p>
+<p>Skip detail.</p>
+<hr />
+<h2 id="step-9-build-settings">Step 9 — Build Settings<a class="headerlink" href="#step-9-build-settings" title="Anchor link ke section ini">&para;</a></h2>
+<p>Saatnya export ke executable.</p>
+<h3 id="file-build-settings">File → Build Settings<a class="headerlink" href="#file-build-settings" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li><strong>Scenes In Build</strong>: drag MainScene. Index 0.</li>
+<li><strong>Platform</strong>: pilih Windows / Mac / Linux Standalone, atau WebGL.</li>
+</ul>
+<h3 id="player-settings-klik-player-settings">Player Settings (klik "Player Settings")<a class="headerlink" href="#player-settings-klik-player-settings" title="Anchor link ke section ini">&para;</a></h3>
+<h4 id="resolution-and-presentation">Resolution and Presentation<a class="headerlink" href="#resolution-and-presentation" title="Anchor link ke section ini">&para;</a></h4>
+<ul>
+<li><strong>Default Screen Width</strong>: 1920</li>
+<li><strong>Default Screen Height</strong>: 1080</li>
+<li><strong>Fullscreen Mode</strong>: Fullscreen Window.</li>
+<li><strong>Resolution Dialog</strong>: Hidden by Default.</li>
+</ul>
+<h4 id="splash-image-personal-unity-pro">Splash Image (Personal / Unity Pro)<a class="headerlink" href="#splash-image-personal-unity-pro" title="Anchor link ke section ini">&para;</a></h4>
+<ul>
+<li>Hilangkan Unity logo splash kalau punya Unity Pro. Free tier tetap nampil.</li>
+</ul>
+<h4 id="other-settings">Other Settings<a class="headerlink" href="#other-settings" title="Anchor link ke section ini">&para;</a></h4>
+<ul>
+<li><strong>Color Space</strong>: Linear (atau Gamma — Linear lebih akurat tapi sedikit beda look).</li>
+<li><strong>Auto Graphics API for Windows</strong>: ✅</li>
+<li><strong>Static Batching / Dynamic Batching</strong>: ✅</li>
+</ul>
+<h4 id="publishing-settings">Publishing Settings<a class="headerlink" href="#publishing-settings" title="Anchor link ke section ini">&para;</a></h4>
+<ul>
+<li><strong>Configuration</strong>: Release.</li>
+<li><strong>Compression Method</strong>: LZ4HC (build size lebih kecil, build time sedikit lama).</li>
+</ul>
+<hr />
+<h2 id="step-10-build">Step 10 — Build!<a class="headerlink" href="#step-10-build" title="Anchor link ke section ini">&para;</a></h2>
+<ol>
+<li><strong>File → Build And Run</strong> (atau Build saja kalau gak mau auto-launch).</li>
+<li>Pilih folder output: <code>Builds/Windows/</code>.</li>
+<li>Tunggu 1-5 menit.</li>
+<li>Setelah selesai, executable muncul: <code>StardewClone.exe</code>.</li>
+</ol>
+<p>Test:</p>
+<ul>
+<li>Run executable.</li>
+<li>Verify game jalan, save bisa di-load.</li>
+<li>Check resolution, fullscreen toggle (Alt+Enter atau setting).</li>
+</ul>
+<h3 id="webgl-build">WebGL Build<a class="headerlink" href="#webgl-build" title="Anchor link ke section ini">&para;</a></h3>
+<ol>
+<li><strong>Platform</strong>: WebGL.</li>
+<li>Player Settings → <strong>Publishing Settings → Compression Format</strong>: Brotli (lebih kecil) atau Gzip (kompatibel server lebih luas).</li>
+<li>Build → output folder <code>Builds/WebGL/</code>.</li>
+<li>Run via local web server: <code>cd Builds/WebGL &amp;&amp; python -m http.server 8000</code> → buka <code>http://localhost:8000</code>.</li>
+</ol>
+<blockquote>
+<p><strong>WebGL gotchas</strong>:
+- File access (Application.persistentDataPath) pakai IndexedDB. Save akan persist di browser.
+- First load lama (download 30-50 MB).
+- PostProcessing &amp; beberapa shader gak full support. Test dulu.</p>
+</blockquote>
+<h3 id="mac-linux">Mac &amp; Linux<a class="headerlink" href="#mac-linux" title="Anchor link ke section ini">&para;</a></h3>
+<p>Pilih platform di Build Settings → install module via Unity Hub kalau belum ada → Build.</p>
+<hr />
+<h2 id="step-11-itchio-publish-optional">Step 11 — Itch.io Publish (Optional)<a class="headerlink" href="#step-11-itchio-publish-optional" title="Anchor link ke section ini">&para;</a></h2>
+<p>Cara cepat share game:</p>
+<ol>
+<li>Bikin akun di https://itch.io.</li>
+<li>Dashboard → Create new project.</li>
+<li>Upload zip dari <code>Builds/WebGL/</code> (untuk web playable) atau zip windows build (downloadable).</li>
+<li>Set kind: HTML (kalau WebGL) atau Downloadable.</li>
+<li>Set viewport size 1280×720 (atau sesuai).</li>
+<li>Publish (atau set as draft).</li>
+</ol>
+<p>URL itch.io kamu sekarang punya halaman game. Share ke teman.</p>
+<hr />
+<h2 id="step-12-performance-profiling">Step 12 — Performance Profiling<a class="headerlink" href="#step-12-performance-profiling" title="Anchor link ke section ini">&para;</a></h2>
+<p>Sebelum release, profile dulu:</p>
+<ul>
+<li>Window → Analysis → <strong>Profiler</strong>.</li>
+<li>Pencet Play, biarkan profile running 30 detik.</li>
+<li>Lihat panel CPU, GPU, Memory.</li>
+<li>Spike &gt;1ms? Klik untuk dive ke breakdown.</li>
+</ul>
+<p>Common culprits:</p>
+<ul>
+<li><code>GetComponent</code> di Update tiap frame.</li>
+<li><code>Find / FindWithTag</code> per frame.</li>
+<li>Particle system overload.</li>
+<li>Many GameObjects with Update method.</li>
+</ul>
+<p>Optimize: cache reference, pool particle system, use <code>IUpdate</code> manager pattern.</p>
+<hr />
+<h2 id="step-13-bug-hunt-final">Step 13 — Bug Hunt Final<a class="headerlink" href="#step-13-bug-hunt-final" title="Anchor link ke section ini">&para;</a></h2>
+<p>Sebelum publish:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Save &amp; reload — pastikan semua state pulih.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Crop loop full season — Spring → Summer → Fall → Winter → Spring (year 2). Tidak crash.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Inventory full → harvest → item drop ke ground (tidak hilang).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Buy item → coin terkurangi → item masuk inv.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sell item → item keluar → coin nambah.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sleep multiple kali — gak crash.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tekan tombol UI saat dialog terbuka — tidak konflik.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Resize window → UI tidak rusak.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Build executable jalan tanpa Unity Editor.</li>
+</ul>
+<hr />
+<h2 id="latihan">Latihan<a class="headerlink" href="#latihan" title="Anchor link ke section ini">&para;</a></h2>
+<ol>
+<li><strong>Particle pooling</strong>: instead of Instantiate/Destroy tiap till, pool 20 prefab dirt particle, reuse.</li>
+<li><strong>Volume mixer</strong>: pakai <code>AudioMixer</code> Unity untuk routing music/sfx ke groups, set volume via <code>audioMixer.SetFloat("MusicVolume", Mathf.Log10(v) * 20)</code> (logarithmic).</li>
+<li><strong>Shader effect</strong>: rain droplet shader saat <code>Weather.Rainy</code>. (Bonus dari Chapter 8.)</li>
+<li><strong>Day intro card</strong>: setiap pagi, tampilkan card "Day 5 - Spring" fade in/out 2 detik.</li>
+<li><strong>Achievements</strong>: tambah <code>AchievementManager</code>. Achievement: "First Harvest", "100 Carrots", "Reach Year 2", "Stardew (50 of one crop)".</li>
+</ol>
+<hr />
+<h2 id="recap">Recap<a class="headerlink" href="#recap" title="Anchor link ke section ini">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> AudioManager dengan music + sfx + ambient channel.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> MusicSeasonController auto-switch BGM per season.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Footstep, hoe, water, harvest SFX.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Particle effect dirt burst, water splash, sparkle.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Camera shake via Cinemachine Impulse.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Settings UI dengan volume slider + PlayerPrefs persist.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Build executable Windows / WebGL / Mac.</li>
+</ul>
+<p><strong>Game kamu sudah jadi. Selamat!</strong> 🎉</p>
+<p>Tinggal satu chapter terakhir: arah lanjutan &amp; resources.</p>
+<hr />
+<h2 id="lanjut">Lanjut<a class="headerlink" href="#lanjut" title="Anchor link ke section ini">&para;</a></h2>
+<p><a href="../12-next-steps/"><strong>Chapter 12 — Next Steps &amp; Resources →</strong></a></p>
+<p><a href="../10-save-load/">← Chapter 10</a> | <a href="../">Daftar Isi</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../10-save-load/" class="md-footer__link md-footer__link--prev" aria-label="Sebelumnya: Chapter 10 — Save / Load">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sebelumnya
+              </span>
+              <div class="md-ellipsis">
+                Chapter 10 — Save / Load
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../12-next-steps/" class="md-footer__link md-footer__link--next" aria-label="Selanjutnya: Chapter 12 — Next Steps">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Selanjutnya
+              </span>
+              <div class="md-ellipsis">
+                Chapter 12 — Next Steps
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 ridz15 / FarmingCourse Contributors — MIT License
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/ridz15/FarmingCourse" target="_blank" rel="noopener" title="Source repo" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.top", "navigation.footer", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Tersalin ke clipboard", "clipboard.copy": "Salin ke clipboard", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tidak ada dokumen yang sesuai", "search.result.one": "1 dokumen ditemukan", "search.result.other": "# dokumen ditemukan", "search.result.placeholder": "Ketik untuk mulai pencarian", "search.result.term.missing": "Tidak ada", "select.version": "Pilih versi"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

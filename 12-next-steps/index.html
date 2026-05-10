@@ -1,0 +1,1694 @@
+
+<!doctype html>
+<html lang="id" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course gratis (Bahasa Indonesia) untuk membuat farming game ala Stardew Valley dengan Unity 2D top-down — dari nol sampai bisa dimainkan.">
+      
+      
+        <meta name="author" content="ridz15">
+      
+      
+        <link rel="canonical" href="https://ridz15.github.io/FarmingCourse/12-next-steps/">
+      
+      
+        <link rel="prev" href="../11-polish-build/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Chapter 12 — Next Steps - FarmingCourse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-12-next-steps-resources" class="md-skip">
+          Lewati ke isi
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="FarmingCourse" class="md-header__button md-logo" aria-label="FarmingCourse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FarmingCourse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 12 — Next Steps
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green"  aria-label="Ganti ke dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Ganti ke dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Ganti ke light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Ganti ke light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cari">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Bagikan" aria-label="Bagikan" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Kosongkan" aria-label="Kosongkan" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Mempersiapkan pencarian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ridz15/FarmingCourse" title="Ke repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ridz15/FarmingCourse
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="FarmingCourse" class="md-nav__button md-logo" aria-label="FarmingCourse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FarmingCourse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ridz15/FarmingCourse" title="Ke repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ridz15/FarmingCourse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beranda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-pendahuluan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 0 — Pendahuluan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-setup-project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 — Setup Project Unity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-player-character/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 — Player Character & Movement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-camera-follow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 — Camera Follow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-tilemap-world/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 — Tilemap & Dunia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-tools-system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 — Tools System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-farming-mechanics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 — Farming Mechanics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-inventory-system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 — Inventory & UI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-time-day-night/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 — Time, Day/Night & Seasons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-shop-npc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 — Shop & NPC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-save-load/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 — Save / Load
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-polish-build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 11 — Audio, Polish & Build
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 12 — Next Steps
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 12 — Next Steps
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#refleksi-apa-yang-sudah-kamu-pelajari" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refleksi: Apa yang Sudah Kamu Pelajari
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap-a-lengkapin-stardew-clone-kamu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roadmap A: Lengkapin Stardew Clone Kamu
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Roadmap A: Lengkapin Stardew Clone Kamu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a1-combat-mining" class="md-nav__link">
+    <span class="md-ellipsis">
+      A1. Combat &amp; Mining
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a2-fishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      A2. Fishing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a3-cooking-crafting" class="md-nav__link">
+    <span class="md-ellipsis">
+      A3. Cooking &amp; Crafting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a4-npc-sosial-sim" class="md-nav__link">
+    <span class="md-ellipsis">
+      A4. NPC Sosial Sim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a5-animals-cow-chicken" class="md-nav__link">
+    <span class="md-ellipsis">
+      A5. Animals (Cow, Chicken)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a6-mining-forging" class="md-nav__link">
+    <span class="md-ellipsis">
+      A6. Mining &amp; Forging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a7-buildings-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      A7. Buildings &amp; Decoration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a8-festival-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      A8. Festival Events
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap-b-pivot-ke-game-lain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roadmap B: Pivot ke Game Lain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Roadmap B: Pivot ke Game Lain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b1-top-down-adventure-zelda-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      B1. Top-Down Adventure (Zelda-like)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b2-cozy-resource-sim-animal-crossing" class="md-nav__link">
+    <span class="md-ellipsis">
+      B2. Cozy Resource Sim (Animal Crossing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b3-roguelike-shooter" class="md-nav__link">
+    <span class="md-ellipsis">
+      B3. Roguelike Shooter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b4-tower-defense" class="md-nav__link">
+    <span class="md-ellipsis">
+      B4. Tower Defense
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap-c-multiplayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roadmap C: Multiplayer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Roadmap C: Multiplayer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c1-local-co-op-shared-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      C1. Local Co-op (Shared Screen)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c2-online-multiplayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      C2. Online Multiplayer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-belajar-lanjutan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Belajar Lanjutan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource Belajar Lanjutan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#youtube-channels-inggris" class="md-nav__link">
+    <span class="md-ellipsis">
+      YouTube Channels (Inggris)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#youtube-bahasa-indonesia" class="md-nav__link">
+    <span class="md-ellipsis">
+      YouTube (Bahasa Indonesia)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buku" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buku
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#komunitas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Komunitas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asset-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset Library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-lanjutan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools Lanjutan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-karier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips Karier
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips Karier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-bikin-portfolio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Bikin portfolio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-spesialisasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Spesialisasi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-jam-ikut" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Jam ikut!
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-open-source-contribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Open source contribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Networking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refactor-course-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactor Course Project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bagaimana-kalau-stuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bagaimana Kalau Stuck?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pesan-terakhir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pesan Terakhir
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terima-kasih" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terima Kasih
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#refleksi-apa-yang-sudah-kamu-pelajari" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refleksi: Apa yang Sudah Kamu Pelajari
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap-a-lengkapin-stardew-clone-kamu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roadmap A: Lengkapin Stardew Clone Kamu
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Roadmap A: Lengkapin Stardew Clone Kamu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a1-combat-mining" class="md-nav__link">
+    <span class="md-ellipsis">
+      A1. Combat &amp; Mining
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a2-fishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      A2. Fishing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a3-cooking-crafting" class="md-nav__link">
+    <span class="md-ellipsis">
+      A3. Cooking &amp; Crafting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a4-npc-sosial-sim" class="md-nav__link">
+    <span class="md-ellipsis">
+      A4. NPC Sosial Sim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a5-animals-cow-chicken" class="md-nav__link">
+    <span class="md-ellipsis">
+      A5. Animals (Cow, Chicken)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a6-mining-forging" class="md-nav__link">
+    <span class="md-ellipsis">
+      A6. Mining &amp; Forging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a7-buildings-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      A7. Buildings &amp; Decoration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a8-festival-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      A8. Festival Events
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap-b-pivot-ke-game-lain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roadmap B: Pivot ke Game Lain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Roadmap B: Pivot ke Game Lain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b1-top-down-adventure-zelda-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      B1. Top-Down Adventure (Zelda-like)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b2-cozy-resource-sim-animal-crossing" class="md-nav__link">
+    <span class="md-ellipsis">
+      B2. Cozy Resource Sim (Animal Crossing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b3-roguelike-shooter" class="md-nav__link">
+    <span class="md-ellipsis">
+      B3. Roguelike Shooter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b4-tower-defense" class="md-nav__link">
+    <span class="md-ellipsis">
+      B4. Tower Defense
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap-c-multiplayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roadmap C: Multiplayer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Roadmap C: Multiplayer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c1-local-co-op-shared-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      C1. Local Co-op (Shared Screen)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c2-online-multiplayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      C2. Online Multiplayer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-belajar-lanjutan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Belajar Lanjutan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource Belajar Lanjutan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#youtube-channels-inggris" class="md-nav__link">
+    <span class="md-ellipsis">
+      YouTube Channels (Inggris)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#youtube-bahasa-indonesia" class="md-nav__link">
+    <span class="md-ellipsis">
+      YouTube (Bahasa Indonesia)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buku" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buku
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#komunitas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Komunitas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asset-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset Library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-lanjutan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools Lanjutan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-karier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips Karier
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips Karier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-bikin-portfolio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Bikin portfolio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-spesialisasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Spesialisasi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-jam-ikut" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Jam ikut!
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-open-source-contribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Open source contribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Networking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refactor-course-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactor Course Project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bagaimana-kalau-stuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bagaimana Kalau Stuck?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pesan-terakhir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pesan Terakhir
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terima-kasih" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terima Kasih
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ridz15/FarmingCourse/edit/main/docs/12-next-steps.md" title="Ubah halaman ini" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ridz15/FarmingCourse/raw/main/docs/12-next-steps.md" title="Lihat sumber halaman ini" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+<h1 id="chapter-12-next-steps-resources">Chapter 12 — Next Steps &amp; Resources<a class="headerlink" href="#chapter-12-next-steps-resources" title="Anchor link ke section ini">&para;</a></h1>
+<blockquote>
+<p>"Ending course = starting your own project."</p>
+</blockquote>
+<p>Selamat! Kamu udah punya farming game playable dengan core Stardew-style mechanics. Sekarang... mau dibawa ke mana?</p>
+<p>Chapter ini bukan tutorial — ini <strong>roadmap</strong>. Pilih satu (atau beberapa) yang menarik kamu, dan dive in.</p>
+<hr />
+<h2 id="refleksi-apa-yang-sudah-kamu-pelajari">Refleksi: Apa yang Sudah Kamu Pelajari<a class="headerlink" href="#refleksi-apa-yang-sudah-kamu-pelajari" title="Anchor link ke section ini">&para;</a></h2>
+<p>Sepanjang course ini kamu udah praktikin:</p>
+<table>
+<thead>
+<tr>
+<th>Topik</th>
+<th>Chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project setup, package manager, version control</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Input System modern, Rigidbody2D, animasi blend tree</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Cinemachine 2D camera</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Tilemap, Rule Tile, layered rendering, Y-sort</td>
+<td>4</td>
+</tr>
+<tr>
+<td>ScriptableObject pattern (data-driven design)</td>
+<td>5, 6</td>
+</tr>
+<tr>
+<td>Singleton pattern (event-driven managers)</td>
+<td>6, 8</td>
+</tr>
+<tr>
+<td>Slot-based inventory, drag-and-drop UI</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Real-time + game-time sync, scheduling</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Shop &amp; dialog UI</td>
+<td>9</td>
+</tr>
+<tr>
+<td>JSON serialization &amp; save versioning</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Audio mixing, particle, polish</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<p>Itu fondasi solid. Banyak game beda (RPG, simulation, sandbox) reuse pattern yang sama.</p>
+<hr />
+<h2 id="roadmap-a-lengkapin-stardew-clone-kamu">Roadmap A: Lengkapin Stardew Clone Kamu<a class="headerlink" href="#roadmap-a-lengkapin-stardew-clone-kamu" title="Anchor link ke section ini">&para;</a></h2>
+<p>Versi mini tinggal 80% dari Stardew. Mau bikin lebih lengkap? Tambah ini:</p>
+<h3 id="a1-combat-mining">A1. Combat &amp; Mining<a class="headerlink" href="#a1-combat-mining" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Underground "mine" dengan tilemap berbeda + procedural generation.</li>
+<li>Enemy AI (slime patrol, attack player).</li>
+<li>Sword tool: swing → deal damage to enemies.</li>
+<li>Player health &amp; damage / death.</li>
+</ul>
+<p>Resource: cari "Unity 2D combat tutorial" / "tile-based dungeon generator".</p>
+<h3 id="a2-fishing">A2. Fishing<a class="headerlink" href="#a2-fishing" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Fishing rod tool. Lempar ke water tile.</li>
+<li>Mini-game: timing bar, klik di green zone untuk catch.</li>
+<li>Fish Database: 30+ jenis dengan rarity &amp; season/time conditions.</li>
+</ul>
+<h3 id="a3-cooking-crafting">A3. Cooking &amp; Crafting<a class="headerlink" href="#a3-cooking-crafting" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Recipe system (CraftingRecipeSO): input items + output item.</li>
+<li>Cooking station GameObject + UI.</li>
+<li>Energy / hunger system.</li>
+</ul>
+<h3 id="a4-npc-sosial-sim">A4. NPC Sosial Sim<a class="headerlink" href="#a4-npc-sosial-sim" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Per-NPC schedule (multiple waypoints by hour).</li>
+<li>Heart system (gift items → naik / turun friendship).</li>
+<li>Per-NPC dialogue tree (multi-page, branching).</li>
+<li>Marriage/dating system (unlock at 8 hearts).</li>
+</ul>
+<h3 id="a5-animals-cow-chicken">A5. Animals (Cow, Chicken)<a class="headerlink" href="#a5-animals-cow-chicken" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Coop dan barn building.</li>
+<li>Hewan punya happiness, hunger, age.</li>
+<li>Daily produce (egg, milk).</li>
+<li>Tool baru: bucket (untuk milking), shears.</li>
+</ul>
+<h3 id="a6-mining-forging">A6. Mining &amp; Forging<a class="headerlink" href="#a6-mining-forging" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Pickaxe untuk hancurin batu di mine. Drop ore.</li>
+<li>Furnace: ore + coal → bar.</li>
+<li>Forge: bar + tool → upgraded tool (radius +1, dll).</li>
+</ul>
+<h3 id="a7-buildings-decoration">A7. Buildings &amp; Decoration<a class="headerlink" href="#a7-buildings-decoration" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Carpenter NPC: bayar coin + materials → build coop, barn, kandang.</li>
+<li>Furniture placement system.</li>
+<li>Multi-story house upgrade.</li>
+</ul>
+<h3 id="a8-festival-events">A8. Festival Events<a class="headerlink" href="#a8-festival-events" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Spring Festival, Summer Beach Day, Fall Pumpkin, Winter Stardrop.</li>
+<li>Trigger di hari tertentu, pindah ke "festival scene", mini-game.</li>
+</ul>
+<hr />
+<h2 id="roadmap-b-pivot-ke-game-lain">Roadmap B: Pivot ke Game Lain<a class="headerlink" href="#roadmap-b-pivot-ke-game-lain" title="Anchor link ke section ini">&para;</a></h2>
+<p>Pondasi Stardew clone bisa jadi base untuk genre berbeda:</p>
+<h3 id="b1-top-down-adventure-zelda-like">B1. Top-Down Adventure (Zelda-like)<a class="headerlink" href="#b1-top-down-adventure-zelda-like" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Hapus tilling/farming, fokus combat &amp; dungeon.</li>
+<li>Heart container &amp; boss.</li>
+<li>Tilemap dungeon dengan room-based loading.</li>
+</ul>
+<h3 id="b2-cozy-resource-sim-animal-crossing">B2. Cozy Resource Sim (Animal Crossing)<a class="headerlink" href="#b2-cozy-resource-sim-animal-crossing" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Hapus combat. Semua peaceful.</li>
+<li>Decoration &amp; house customization.</li>
+<li>Real-time clock (sync dengan jam OS).</li>
+</ul>
+<h3 id="b3-roguelike-shooter">B3. Roguelike Shooter<a class="headerlink" href="#b3-roguelike-shooter" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Procedural dungeon (Wave Function Collapse atau BSP).</li>
+<li>Gun tool dengan projectile physics.</li>
+<li>Permadeath: save hilang saat mati.</li>
+</ul>
+<h3 id="b4-tower-defense">B4. Tower Defense<a class="headerlink" href="#b4-tower-defense" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Tilemap untuk grid placement.</li>
+<li>Wave system (Time-based).</li>
+<li>Tower SO inheritance, similar pola Tool.</li>
+</ul>
+<hr />
+<h2 id="roadmap-c-multiplayer">Roadmap C: Multiplayer<a class="headerlink" href="#roadmap-c-multiplayer" title="Anchor link ke section ini">&para;</a></h2>
+<p>Agak rumit, tapi achievable:</p>
+<h3 id="c1-local-co-op-shared-screen">C1. Local Co-op (Shared Screen)<a class="headerlink" href="#c1-local-co-op-shared-screen" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>2 PlayerInput components di scene, satu pakai keyboard, satu gamepad.</li>
+<li>Cinemachine Group Composer (frame both players).</li>
+<li>Resource sharing atau split inventory.</li>
+</ul>
+<h3 id="c2-online-multiplayer">C2. Online Multiplayer<a class="headerlink" href="#c2-online-multiplayer" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li>Pakai <strong>Mirror Networking</strong> (gratis), <strong>Photon PUN</strong>, atau <strong>Unity Netcode for GameObjects</strong>.</li>
+<li>Concept: Server-authoritative state. CropTileManager di server, sync ke client.</li>
+<li>Save di cloud / dedicated server.</li>
+</ul>
+<p>Belajar dari: https://docs.unity3d.com/Packages/com.unity.netcode.gameobjects@latest</p>
+<hr />
+<h2 id="resource-belajar-lanjutan">Resource Belajar Lanjutan<a class="headerlink" href="#resource-belajar-lanjutan" title="Anchor link ke section ini">&para;</a></h2>
+<h3 id="youtube-channels-inggris">YouTube Channels (Inggris)<a class="headerlink" href="#youtube-channels-inggris" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li><strong>Brackeys</strong> (legendary, banyak tutorial Unity 2D walaupun kanal sudah dormant).</li>
+<li><strong>Code Monkey</strong> — tutorial Unity dengan code clean.</li>
+<li><strong>Sebastian Lague</strong> — algorithmic / procedural generation.</li>
+<li><strong>Game Maker's Toolkit</strong> — game design analysis.</li>
+<li><strong>Unity Official</strong> — official tutorials &amp; news.</li>
+</ul>
+<h3 id="youtube-bahasa-indonesia">YouTube (Bahasa Indonesia)<a class="headerlink" href="#youtube-bahasa-indonesia" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li><strong>Skillevel Academy</strong></li>
+<li><strong>Aldo Apriawan</strong></li>
+<li><strong>Tutorial Unity Indonesia</strong></li>
+</ul>
+<h3 id="buku">Buku<a class="headerlink" href="#buku" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li><strong>"Game Programming Patterns" oleh Robert Nystrom</strong> — gratis online di gameprogrammingpatterns.com. Pattern Singleton, Observer, Component, Entity-Component-System dijelaskan dengan game examples.</li>
+<li><strong>"The Art of Game Design" oleh Jesse Schell</strong> — lebih ke design (bukan code), tapi penting.</li>
+<li><strong>"Mostly Harmless" oleh Bert Bates</strong> (Head First C#) — bagus untuk pemula C#.</li>
+</ul>
+<h3 id="komunitas">Komunitas<a class="headerlink" href="#komunitas" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li><strong>r/Unity3D</strong> dan <strong>r/gamedev</strong> di Reddit.</li>
+<li><strong>Unity Forum</strong> — official, banyak veteran.</li>
+<li><strong>Discord servers</strong>: Unity Indonesia, Cherno Game Dev, Brackeys.</li>
+<li><strong>Facebook Group</strong>: Indonesia Game Developer.</li>
+<li><strong>GitHub</strong> — banyak open source Unity project, baca code orang lain.</li>
+</ul>
+<h3 id="asset-library">Asset Library<a class="headerlink" href="#asset-library" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li><strong>Itch.io</strong> — banyak free pixel art &amp; SFX.</li>
+<li><strong>Kenney.nl</strong> — high-quality CC0 game assets.</li>
+<li><strong>OpenGameArt.org</strong> — community-uploaded.</li>
+<li><strong>Freesound.org</strong> — SFX &amp; ambient.</li>
+<li><strong>Pixabay.com</strong> — music gratis (cek lisensi).</li>
+</ul>
+<h3 id="tools-lanjutan">Tools Lanjutan<a class="headerlink" href="#tools-lanjutan" title="Anchor link ke section ini">&para;</a></h3>
+<ul>
+<li><strong>DOTween</strong> (free / Pro) — tween library, bikin animasi UI mudah banget.</li>
+<li><strong>Odin Inspector</strong> — Inspector serialization super powerful (paid).</li>
+<li><strong>Unity Test Framework</strong> — unit testing.</li>
+<li><strong>Rider</strong> — IDE, jauh lebih cepat dari VS Community untuk Unity.</li>
+</ul>
+<hr />
+<h2 id="tips-karier">Tips Karier<a class="headerlink" href="#tips-karier" title="Anchor link ke section ini">&para;</a></h2>
+<p>Kalau kamu ingin ke arah karier game dev:</p>
+<h3 id="1-bikin-portfolio">1. Bikin portfolio<a class="headerlink" href="#1-bikin-portfolio" title="Anchor link ke section ini">&para;</a></h3>
+<p>3-5 project complete, polished, playable di browser (WebGL build di itch.io). Showcase code di GitHub.</p>
+<h3 id="2-spesialisasi">2. Spesialisasi<a class="headerlink" href="#2-spesialisasi" title="Anchor link ke section ini">&para;</a></h3>
+<p>Studio biasanya mempekerjakan untuk role specific:
+- <strong>Gameplay Programmer</strong> — system design (yang course ini ngasih intro).
+- <strong>Tools Programmer</strong> — bikin editor extensions.
+- <strong>Graphics / Shader Programmer</strong>.
+- <strong>Network Programmer</strong>.
+- <strong>AI Programmer</strong> — pathfinding, behavior tree.</p>
+<p>Pilih satu, dive deep.</p>
+<h3 id="3-jam-ikut">3. Jam ikut!<a class="headerlink" href="#3-jam-ikut" title="Anchor link ke section ini">&para;</a></h3>
+<p>Game jam = kompetisi 48-72 jam bikin game dari scratch. <strong>Ludum Dare</strong>, <strong>Global Game Jam</strong>, <strong>GMTK Jam</strong> populer. Tekanan bikin kamu cepat, dan portfolio kaya.</p>
+<h3 id="4-open-source-contribute">4. Open source contribute<a class="headerlink" href="#4-open-source-contribute" title="Anchor link ke section ini">&para;</a></h3>
+<p>Cari Unity package open source di GitHub, baca code, kirim PR untuk fix bug atau add fitur. CV impressive.</p>
+<h3 id="5-networking">5. Networking<a class="headerlink" href="#5-networking" title="Anchor link ke section ini">&para;</a></h3>
+<p>Twitter, LinkedIn, Discord, ikut event lokal. Industri kecil, kenalan penting.</p>
+<hr />
+<h2 id="refactor-course-project">Refactor Course Project<a class="headerlink" href="#refactor-course-project" title="Anchor link ke section ini">&para;</a></h2>
+<p>Setelah nyelesain course, banyak hal di project ini yang bisa di-improve:</p>
+<ol>
+<li><strong>Decouple singleton</strong> dengan ServiceLocator atau dependency injection (Zenject / VContainer). Bikin testable.</li>
+<li><strong>Tambah unit test</strong> dengan Unity Test Framework. Test InventoryManager.Add/Remove logic, TimeManager day advance, dll.</li>
+<li><strong>State Machine untuk Player</strong> — Idle / Walking / SwingingTool / Sleeping / Dialogue. Ganti boolean spaghetti.</li>
+<li><strong>Addressables</strong> untuk lazy load asset (kalau game grow besar).</li>
+<li><strong>Localization</strong> — pakai Unity Localization Package. Translate ke English / Spanish / dll.</li>
+<li><strong>ECS / DOTS</strong> — kalau performance jadi concern (10,000+ tile farming?), refactor ke DOTS.</li>
+</ol>
+<hr />
+<h2 id="bagaimana-kalau-stuck">Bagaimana Kalau Stuck?<a class="headerlink" href="#bagaimana-kalau-stuck" title="Anchor link ke section ini">&para;</a></h2>
+<p>Setiap dev, dari pemula sampai senior, stuck. Pendekatan saya:</p>
+<ol>
+<li><strong>Reproduce konsisten</strong>. Bisa bikin bug muncul tiap kali? Bagus.</li>
+<li><strong>Isolate</strong>. Buang code yang gak perlu, sampai cuma yang minim. Sering bug ketebak waktu kita simplify.</li>
+<li><strong>Read error message</strong>. Beneran baca. Bukan cuma scan. 80% error langsung kasih tahu solusinya.</li>
+<li><strong>Print everything</strong> (<code>Debug.Log</code>). Sebar log di tiap baris dari titik kerja sampai titik error.</li>
+<li><strong>Ask AI</strong> (ChatGPT / Claude) dengan <strong>konteks lengkap</strong> — kasih kode + error message + apa yang udah kamu coba.</li>
+<li><strong>Sleep on it</strong>. Beneran. 30 menit nge-stare di bug yang gak ke-solve, bangun pagi langsung kebayang.</li>
+<li><strong>Ask community</strong>. Stack Overflow (kalau pertanyaan general) atau Unity Forum (Unity-specific). Pertanyaan jelas, kode singkat reproducible.</li>
+</ol>
+<hr />
+<h2 id="pesan-terakhir">Pesan Terakhir<a class="headerlink" href="#pesan-terakhir" title="Anchor link ke section ini">&para;</a></h2>
+<p>Kamu udah ngeprintilan banyak banget kode di course ini. Itu bagus. Tapi <strong>kode yang kamu pahami &gt; kode yang kamu copy</strong>.</p>
+<p>Pesan saya:</p>
+<ul>
+<li><strong>Bikin game-mu sendiri</strong> sekarang. Apapun. Brutal jelek juga gak apa.</li>
+<li><strong>Selesain proyek</strong>. 1 game finished &gt; 10 game prototype.</li>
+<li><strong>Share progress</strong> di sosmed. Accountability + komunitas akan support.</li>
+<li><strong>Belajar dari critique</strong>. Kalau player bilang "kontrol jelek", jangan defensive. Tanya kenapa, fix.</li>
+<li><strong>Don't burn out</strong>. Side project harus fun. Kalau jadi PR, istirahat.</li>
+</ul>
+<p>Game dev itu marathon, bukan sprint. Pelan-pelan tapi konsisten = win.</p>
+<hr />
+<h2 id="terima-kasih">Terima Kasih<a class="headerlink" href="#terima-kasih" title="Anchor link ke section ini">&para;</a></h2>
+<p>Course ini gratis dan akan terus diupdate. Kalau bermanfaat:</p>
+<ul>
+<li>⭐ Star repo ini di GitHub.</li>
+<li>Share ke teman yang juga lagi belajar Unity.</li>
+<li>Kontribusi: typo fix, chapter tambahan, terjemahan ke bahasa lain — open Issue atau kirim PR.</li>
+</ul>
+<p>Punya question, suggestion, atau mau pamer game-mu? Buka <a href="https://github.com/ridz15/FarmingCourse/issues">Issue</a> dengan tag <code>discussion</code>.</p>
+<hr />
+<p><strong>Selamat ngoding, dan jangan lupa: have fun farming!</strong> 🌾🌽🥕</p>
+<p>— <em>FarmingCourse Team</em></p>
+<p><a href="../11-polish-build/">← Chapter 11</a> | <a href="../">← Daftar Isi</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../11-polish-build/" class="md-footer__link md-footer__link--prev" aria-label="Sebelumnya: Chapter 11 — Audio, Polish &amp; Build">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sebelumnya
+              </span>
+              <div class="md-ellipsis">
+                Chapter 11 — Audio, Polish & Build
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 ridz15 / FarmingCourse Contributors — MIT License
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/ridz15/FarmingCourse" target="_blank" rel="noopener" title="Source repo" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.top", "navigation.footer", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Tersalin ke clipboard", "clipboard.copy": "Salin ke clipboard", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tidak ada dokumen yang sesuai", "search.result.one": "1 dokumen ditemukan", "search.result.other": "# dokumen ditemukan", "search.result.placeholder": "Ketik untuk mulai pencarian", "search.result.term.missing": "Tidak ada", "select.version": "Pilih versi"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

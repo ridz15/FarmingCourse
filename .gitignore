@@ -1,0 +1,33 @@
+# This .gitignore is for the docs repo itself (not the Unity project).
+# A Unity .gitignore template is provided in chapters/01-setup-project.md
+# for students to copy into their own Unity project.
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Build / package outputs
+dist/
+build/
+out/
+
+# Node (if any tooling is added later)
+node_modules/
+package-lock.json
+
+# Python (if any tooling is added later)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Generated
+*.log

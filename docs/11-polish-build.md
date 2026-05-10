@@ -534,4 +534,4 @@ Tinggal satu chapter terakhir: arah lanjutan & resources.
 
 [**Chapter 12 — Next Steps & Resources →**](12-next-steps.md)
 
-[← Chapter 10](10-save-load.md) | [Daftar Isi](../README.md)
+[← Chapter 10](10-save-load.md) | [Daftar Isi](index.md)

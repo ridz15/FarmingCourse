@@ -354,4 +354,4 @@ Player jalan, kamera nguntit. Sekarang saatnya bikin **dunia farm** untuk di-jel
 
 [**Chapter 4 — Tilemap & Membangun Dunia →**](04-tilemap-world.md)
 
-[← Chapter 2](02-player-character.md) | [Daftar Isi](../README.md)
+[← Chapter 2](02-player-character.md) | [Daftar Isi](index.md)

@@ -1,0 +1,105 @@
+site_name: FarmingCourse
+site_description: Course gratis (Bahasa Indonesia) untuk membuat farming game ala Stardew Valley dengan Unity 2D top-down — dari nol sampai bisa dimainkan.
+site_url: https://ridz15.github.io/FarmingCourse/
+site_author: ridz15
+
+repo_url: https://github.com/ridz15/FarmingCourse
+repo_name: ridz15/FarmingCourse
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: id
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      accent: green
+      toggle:
+        icon: material/brightness-7
+        name: Ganti ke dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/brightness-4
+        name: Ganti ke light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+    - content.action.view
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: Anchor link ke section ini
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search:
+      lang:
+        - en
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ridz15/FarmingCourse
+      name: Source repo
+  generator: false
+
+copyright: Copyright &copy; 2026 ridz15 / FarmingCourse Contributors — MIT License
+
+nav:
+  - Beranda: index.md
+  - 'Chapter 0 — Pendahuluan': 00-pendahuluan.md
+  - 'Chapter 1 — Setup Project Unity': 01-setup-project.md
+  - 'Chapter 2 — Player Character & Movement': 02-player-character.md
+  - 'Chapter 3 — Camera Follow': 03-camera-follow.md
+  - 'Chapter 4 — Tilemap & Dunia': 04-tilemap-world.md
+  - 'Chapter 5 — Tools System': 05-tools-system.md
+  - 'Chapter 6 — Farming Mechanics': 06-farming-mechanics.md
+  - 'Chapter 7 — Inventory & UI': 07-inventory-system.md
+  - 'Chapter 8 — Time, Day/Night & Seasons': 08-time-day-night.md
+  - 'Chapter 9 — Shop & NPC': 09-shop-npc.md
+  - 'Chapter 10 — Save / Load': 10-save-load.md
+  - 'Chapter 11 — Audio, Polish & Build': 11-polish-build.md
+  - 'Chapter 12 — Next Steps': 12-next-steps.md

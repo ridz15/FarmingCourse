@@ -875,4 +875,4 @@ Inventory full-feature siap. Saatnya nge-flow waktu — siang malam, hari, seaso
 
 [**Chapter 8 — Time, Day/Night & Seasons →**](08-time-day-night.md)
 
-[← Chapter 6](06-farming-mechanics.md) | [Daftar Isi](../README.md)
+[← Chapter 6](06-farming-mechanics.md) | [Daftar Isi](index.md)

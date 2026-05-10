@@ -686,4 +686,4 @@ Saatnya **polish**: audio, music, build executable.
 
 [**Chapter 11 — Audio, Polish & Build →**](11-polish-build.md)
 
-[← Chapter 9](09-shop-npc.md) | [Daftar Isi](../README.md)
+[← Chapter 9](09-shop-npc.md) | [Daftar Isi](index.md)

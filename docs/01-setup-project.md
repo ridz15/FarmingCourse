@@ -447,4 +447,4 @@ Kalau ada yang skip, balik dulu sebelum lanjut. Chapter 2 akan langsung mulai co
 
 [**Chapter 2 — Player Character & Movement →**](02-player-character.md)
 
-[← Chapter 0](00-pendahuluan.md) | [Daftar Isi](../README.md)
+[← Chapter 0](00-pendahuluan.md) | [Daftar Isi](index.md)

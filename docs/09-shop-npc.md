@@ -558,4 +558,4 @@ Saatnya **save semua progress ke file** supaya gak ilang saat tutup game.
 
 [**Chapter 10 — Save / Load System →**](10-save-load.md)
 
-[← Chapter 8](08-time-day-night.md) | [Daftar Isi](../README.md)
+[← Chapter 8](08-time-day-night.md) | [Daftar Isi](index.md)

@@ -847,4 +847,4 @@ Sistem alat sudah ada. Saatnya bikin **mekanik farming sebenarnya**: till, water
 
 [**Chapter 6 — Farming Mechanics →**](06-farming-mechanics.md)
 
-[← Chapter 4](04-tilemap-world.md) | [Daftar Isi](../README.md)
+[← Chapter 4](04-tilemap-world.md) | [Daftar Isi](index.md)
